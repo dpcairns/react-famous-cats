@@ -28,3 +28,22 @@ Orchestrate and Integrate:
     1. Convert image object to html using template
     1. Convert html to DOM using htmlToDOM
     1. Append to list parent (`<ul>`)
+
+## STRETCH: Header
+
+Make a separate template function (using DDD process) for your header. It
+doesn't take any data, but can still return html (which can be made into DOM).
+Import, call, and append DOM in `index.js`
+
+---
+
+## Points Break Down
+
+Looking For | Points (10)
+:--|--:
+Semantic and Idiomatic HTML and CSS  | 2 
+TDD template function | 2
+Use functional `.forEach` for looping | 2
+Works correctly | 2
+Project and code files are: indented / spaced correctly / clean | 2 
+Header template | +3 
