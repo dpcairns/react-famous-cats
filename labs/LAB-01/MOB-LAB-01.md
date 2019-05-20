@@ -3,6 +3,13 @@ MOB LAB 01: Photo Gallery
 
 Create a photo gallery app. 
 
+## Utility Helpers
+
+You will need:
+
+- `/test/html-equal.js` (don't forget to import in `/test/tests.js`)
+- `/src/html-to-dom.js`
+
 ## Image Data
 
 You can use the supplied images data file or make up your own. Some of the

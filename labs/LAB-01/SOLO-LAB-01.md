@@ -3,6 +3,13 @@ SOLO LAB 01: TODO List
 
 Create a TODO list 
 
+## Utility Helpers
+
+You will need:
+
+- `/test/html-equal.js` (don't forget to import in `/test/tests.js`)
+- `/src/html-to-dom.js`
+
 ## TODO List Data
 
 Create a file that exports a TODO list. Data could look like:
