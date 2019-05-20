@@ -28,6 +28,10 @@ Diagnose:
     - Making a Case
     - Narrative Stories
 
+## VSCode HTML Extension
+
+Install `tobermory.es6-string-html`;
+
 ## Template Functions with Template Literals
 
 A function that combines the above concepts by taking data and
@@ -46,8 +50,6 @@ function template(data) {
     return html;
 }
 ```
-
-## VSCode HTML Extension
 
 ## Design-Driven Development
 
