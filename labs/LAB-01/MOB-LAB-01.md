@@ -33,6 +33,7 @@ Orchestrate and Integrate:
 
 Make a separate template function (using DDD process) for your header. It
 doesn't take any data, but can still return html (which can be made into DOM).
+Call it `templateHeader` or something that won't conflict with image template.
 Import, call, and append DOM in `index.js`
 
 ---

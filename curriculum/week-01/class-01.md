@@ -82,8 +82,10 @@ function htmlToDOM(html) {
     template.innerHTML = html;
     // 4) use content property to fetch dom
     const dom = template.content;
-    // 5) return the dom to the caller
-    return dom;
+    // 5) Get the first element child
+    const firstElementChild = dom.firstElementChild;
+    // 5) return the first element to the caller
+    return firstElementChild;
 }
 ```
 
@@ -94,8 +96,8 @@ a `for` loop.
 
 ```js
 const list = document.getElementById('list');
-images.forEach(function(image) {
-    const dom = makeImageTemplate(image);
+images.forEach(image => {
+    const dom = template(image);
     list.appendChild(dom);
 });
 ```
