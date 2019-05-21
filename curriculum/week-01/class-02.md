@@ -48,6 +48,60 @@ in the elements view)
 - So what if a parent needs to know about something that happened in a child?
     - Pass a callback property!
 
+### Shorthand for Object Literals
+
+When making object literals out of variables were the name
+of the property is same name as variable, instead of:
+
+```js
+const cats = [ /* ... */ ];
+
+const props = {
+    cats: cats
+};
+
+const catItem = new CatItem(props);
+```
+
+write:
+
+```js
+const cats = [ /* ... */ ];
+
+const props = {
+    cats
+};
+
+const catItem = new CatItem(props);
+```
+
+or even:
+
+```js
+const cats = [ /* ... */ ];
+
+const props = { cats };
+
+const catItem = new CatItem(props);
+```
+
+or even shorter still:
+
+```js
+const cats = [ /* ... */ ];
+
+const catItem = new CatItem({ cats });
+```
+
+## Key Methods
+
+- `constructor` - new instance, store props
+- `renderTemplate` - generate html, has access to props
+- `renderDOM` - call `renderTemplate` and convert to DOM
+- `render` - call `renderDOM` and return results. **can be overridden
+in component if custom work to do**
+- `update` - call with new props to rerender (see below)
+
 ## Updating Components
 
 In a modern library or framework, the code to efficiently update lists of things
