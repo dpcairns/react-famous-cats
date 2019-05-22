@@ -21,9 +21,17 @@ Class 03: Filter
     - What are the steps?
     - Indentation should be flawless
     - Use smaller functions to break up big chunks of code
+- Naming
+    - Naming is a process
+    - Avoid data-types in names
 - Testing
     - Not something to be avoided
     - Engage in outcome thinking even if not testable
+    - Move common setup to module level
+- Commits
+    - Please leave detailed notes mobbing in individual submission
+    - Suggest rotating Mob machine each day
+    - Expecting commits in all areas from all people
 
 ## Predicate Functions
 
