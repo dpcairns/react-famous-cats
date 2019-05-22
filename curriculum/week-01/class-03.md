@@ -9,6 +9,7 @@ Class 03: Filter
 - Logical Operators
 - Array `filter` Method
 - Filtered Properties Recipe
+- Component `state`
 
 ## Bootcamp I Project Review
 
@@ -88,3 +89,8 @@ logical "and" of all filters:
         });
     }
     ```
+
+## Component State
+
+Let's add `this.state = {};` to our base `Component`. Anytime a component
+needs to introduce data, store and get from `this.state`.
