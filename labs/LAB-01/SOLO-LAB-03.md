@@ -56,7 +56,6 @@ Subscribe to correct event(s) in `render` and create filter object.
 - `/src/filter-todos.js`
 
 Import the filterTodos function and the Filter component and create and place in App's `render` method. Pass an `onFilter` callback to Filter. In the callback, filter the todos and update the TodoList component. 
-- You will need to save the filter object in App's state. 
 - In the callback, filter the images and update the ImageList component.
 - To play nice with Add, call `update` on the Filter component when adding.
 

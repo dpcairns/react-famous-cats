@@ -58,7 +58,6 @@ or have a submit button. Subscribe to correct event(s) in `render` and create fi
 - `/src/filter-images.js`
 
 Import the filterImages function and the Filter component and create and place in App's `render` method. Pass an `onFilter` callback to Filter. 
-- You will need to save the filter object in App's state. 
 - In the callback, filter the images and update the ImageList component.
 - To play nice with Add, call `update` on the Filter component when adding
 
