@@ -60,10 +60,7 @@ or have a submit button. Subscribe to correct event(s) in `render` and create fi
 Import the filterImages function and the Filter component and create and place in App's `render` method. Pass an `onFilter` callback to Filter. 
 - You will need to save the filter object in App's state. 
 - In the callback, filter the images and update the ImageList component.
-- To play nice with Add:
-    1. Refilter the data after adding to the array
-    1. Test if the new item is included in the filtered array
-    1. If it is **not**, call `update` on the Filter component
+- To play nice with Add, call `update` on the Filter component when adding
 
 ## STRETCH: Make Add Image a Model Component
 

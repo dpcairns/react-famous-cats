@@ -69,9 +69,7 @@ Create a new "filtered" array by testing each item of an array and
 returning "truthy" if item should be included, or "falsey" if not.
 
 ```js
-const filteredImages = images.filter(function(image) {
-    return image.keyword === 'cute';
-});
+const filteredImages = images.filter(image => image.keyword === 'cute');
 ```
 
 ### Filtered Properties Recipe

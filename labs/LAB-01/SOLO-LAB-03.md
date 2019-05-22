@@ -58,10 +58,7 @@ Subscribe to correct event(s) in `render` and create filter object.
 Import the filterTodos function and the Filter component and create and place in App's `render` method. Pass an `onFilter` callback to Filter. In the callback, filter the todos and update the TodoList component. 
 - You will need to save the filter object in App's state. 
 - In the callback, filter the images and update the ImageList component.
-- To play nice with Add:
-    1. Refilter the data after adding to the array
-    1. Test if the new item is included in the filtered array
-    1. If it is **not**, call `update` on the Filter component
+- To play nice with Add, call `update` on the Filter component when adding.
 
 ## STRETCH: Mark Done and Remove Todo
 
