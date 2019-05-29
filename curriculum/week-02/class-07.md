@@ -12,6 +12,7 @@ in the hash (`#`) portion on the url
 1. Window `hashchange` Event
 1. Reading Hash Search Params
 1. Search Component Design
+1. Group Mob: Handling Http Errors
 
 ## Evented Data Stores and Component Trees
 
@@ -61,3 +62,13 @@ window.addEventListener('hashchange', () => {
 
 The Search component does not just produce a value, it also
 needs to keep in sync with the actual state of the hash.
+
+## Handling HTTP Errors
+
+An HTTP response is still valid (not an error), even though
+it has a status code that would be consider and error.
+
+The information about the error _is_ the body of the message. (Review HTTP).
+
+Which means for an error status code, we still need to read the body
+via `response.json()`, *but then convert to error by throwing it!*
