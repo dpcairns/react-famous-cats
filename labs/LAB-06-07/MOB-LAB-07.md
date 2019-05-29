@@ -1,8 +1,6 @@
 # Mob Build: Search API Data
 
-Enhance lab from yesterday with:
-1. Search Functionality
-1. Error Messaging
+Enhance lab from yesterday with Search Functionality
 
 API Link:
 
@@ -19,7 +17,8 @@ the url, you will need to create this programmatically.
 - `src/components/Search.js`
 - `src/components/App.js`
 
-Visually design the Search Component and place into App. You want to offer a form with a text box and button for searching (don't hit the 
+Visually design the Search Component and place into App (or Header or whereever it should go).
+ You want to offer a form with a text box and button for searching (don't hit the 
 API on per keystroke basis, wait for enter or button click).
 
 ## Make the Search Component "Talk" to the url
@@ -28,105 +27,43 @@ API on per keystroke basis, wait for enter or button click).
 
 In the Search component `render` method, you need to accomplish two things:
 
-1. Listen to the window `hashchange` event and update the value of the input with the correct value from the hash faux search params
+1. Update the window location hash with a new search param hash when the form is submitted
+1. Keep the input in sync with what is in the hash of the url.
+    - On initial page load (render of Search component)
+    - In response to the window `hashchange` event
 
-## Setup
+For #2, create a function in render to do the work required for both cases and:
+    - call during the `render` method
+    - call during the listener for the `hashchange` event
 
-- `index.html`
-- `src/main.css`
-- `src/index.js`
-- `src/components/Component.js`
-- `src/components/html-to-DOM.js`
-- `src/components/App.js`
-- `src/components/Header.js`
-- `src/components/header.css`
-- `src/components/<Thing>List.js`
-- `src/components/<thing>-list.css`
+## Make App Aware of Hash Value
 
-(plus config files and other boilerplate)
+Use the same pattern as Search Component, a function called on initial render and
+also called on `hashchange` event. 
 
-Basic app setup with header html and css, and empty list:
+Start by logging the received value from the hashchange event, then once that works, pass
+the value to the api call.
 
-```
--- App
- |
- +-- Header
- |
- +-- <Thing>List
-```
+This function should perform all aspects of each search:
+1. Set loading spinner on
+1. Call the API (with search param)
+1. Update the List component
+1. Set loading spinner off
 
-## DDD List and Item
+## Make the API use the search Param
 
-- `src/components/<Thing>List.js`
-- `src/components/<thing>-list.css`
-- `src/components/<Thing>Item.js`
-- `src/components/<thing>-item.css`
-- `test/tests.js`
-- `test/<Thing>Item.test.js`
+Pass the search value to your API. Use the format you tested in step #1.
 
-1. Work out html and css for the list and list items
-1. Create test and `<Thing>Item` component with `renderTemplate` that returns static html example
-1. Under test, make `renderTemplate` work based on `this.props.<thing>`
-
-```
--- App
- |
- +-- Header
- |
- +-- <Thing>List
- |
- +-- **<Thing>Item**
-
-```
-
-## API Service
-
-- `src/services/<topic>-api.js`
-
-Create a `<topic>-api.js` that exposes the service methods from the api by exporting an
-object with a method per service call. Make sure to `return` the `fetch` promise chain.
-
-As a general rule, create one api module per service. Because we don't want our testing infrastructure to be dependent on actual api call, we will write this without test. (We can try the fetch call `App` to make sure it works - see next step).
-
-## Consume Service
-
-- `src/services/<topic>-api.js`
-- `src/components/App.js`
-
-Import the api module into `App` and in the render call the correct api method and log
-the data being received.
-
-## Orchestrate List Component
-
-- `src/components/App.js`
-- `src/components/<Thing>List.js`
-- `src/components/<Thing>Item.js`
-
-1. Create the `render` method in list component and implement
-going over the data and creating an item component per item of data
-in the list array.
-1. In App:
-    1. Pass the list component an empty array for initial prop value.
-    1. Call update on the list component passing an updated prop with 
-    the data returned from the api call.
-
-## Loading Component
-
-- `src/components/Loading.js`
-- `src/components/App.js`
-
-1. Design a loading spinner and add to App
-1. Pass a prop of `loading: true` to new Loading component
-1. Add a finally to your api call, and update loading with `loading: false`
+Make sure the API works for "no search" case.
 
 ---
+
 
 ## Points Break Down
 
 Looking For | Points (10)
 :--|--:
-Basic Setup and Component Structure  | 1 
-DDD List Item | 2
-API Service with `fetch` | 2
-Loading | 1
-Orchestrate API call and updates in App | 4
+Search Component Design  | 1
+Search Component Talks to Url (on Load too)| 3
+App Listens to Url (on Load too) | 3
+API Uses Search | 3

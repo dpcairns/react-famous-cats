@@ -16,7 +16,7 @@ in the hash (`#`) portion on the url
 
 ## Evented Data Stores and Component Trees
 
-While still adhering to "data up, events down", adding an
+While still adhering to "data down, events up", adding an
 evented data store allows us to separate events and/or data 
 from strictly needing to be passed through the component tree
 of the app.
