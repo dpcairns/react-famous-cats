@@ -15,14 +15,14 @@ Most of these steps should be familiar to you at this point:
 
 1. Basic `App` and `Header` components
 1. Pokedex list component with static Pokemon item html
-1. DDD Pokemon component
-1. API service for getting pokedex
+1. DDD Pokemon item component
+1. API service with method for getting pokedex
 1. Integrate and Orchestrate loading data in App
-    - Use pattern of function called:
+    - Use pattern of a function that is called:
         - at load
         - in response to `hashchange` event
     - Use API to get data
-    - Update Pokedex list component when on `then` callback
+    - Update Pokedex list component on `then` callback with data
 
 ## Basic Paging Component
 
@@ -55,7 +55,6 @@ Design a Search Component. For Pokedex:
 ## STRETCH Add Sorting
 
 1. Offer a dropdown of possible sort field choices. Add to API call
-
 
 ---
 
