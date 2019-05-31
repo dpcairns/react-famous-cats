@@ -49,8 +49,7 @@ Design a Search Component. For Pokedex:
 
 1. Have a "name" text input that searches `pokemon` property
 1. STRETCH: Number inputs (like `defense` and `attack`)
-1. STRETCH: Text inputs for "type"
-    - Add search params for both `type_1` and `type_2` pokemon properties
+1. STRETCH: Text inputs for other properties
 
 ## STRETCH Add Sorting
 
