@@ -64,10 +64,11 @@ On successful sign-in, redirect the user to the home page (`./`).
 
 Create a profile component that will be loaded in the header. Keep
 in mind that our event handlers should be above the component they
-will load.
+will load (Header in this case).
 
 You can DDD the Profile component. You have a test for each state:
 1. user
+1. user with no avatar
 1. no user
 
 ## Header Component

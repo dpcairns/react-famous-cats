@@ -60,6 +60,7 @@ will load.
 
 You can DDD the Profile component. You have a test for each state:
 1. user
+1. user with no avatar
 1. no user
 
 ## Header Component
