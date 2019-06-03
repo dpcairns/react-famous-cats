@@ -1,23 +1,15 @@
-# Mob Build: Users for Favorite Movies
+# Mob Build: Users for Coin Toss
 
-The app will allow a user to sign up and track their favorite
-movies (or TV shows if you prefer).
+The app will bring back our Coin Toss for an online version
 
 ## Background
 
-This is the site we will be using [The Movie DB](https://www.themoviedb.org) as well
-as [Firebase](https://console.firebase.google.com/), part of Google Cloud Platform (GCP).
-
-The Movie API is https://api.themoviedb.org/3. **Please note we will
-be using version `3`!**
-
-Please have at least one person in the mob **sign up for a key** for
-use in tomorrows lab.
+Users can play games for (pretend) money.
 
 ## LAB 11
 
 The goal of Lab 11 is to get user authentication and management set up. If you
-complete this part, start working on your search movies components.
+complete this part, start working on your coin flip components.
 
 ## Setup
 
@@ -85,7 +77,11 @@ to check if user exists before subscribing to button!**
 
 ## STRETCH:
 
-Add a searchable movie or tv show list to your home page.
+Add a **new page** for the coin toss game. Think about design
+of:
+1. The flip and display of coin
+1. Bet, including side and amount
+1. How much money the user has
 
 ---
 
