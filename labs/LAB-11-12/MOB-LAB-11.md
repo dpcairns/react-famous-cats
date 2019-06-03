@@ -66,6 +66,8 @@ Create a profile component that will be loaded in the header. Keep
 in mind that our event handlers should be above the component they
 will load (Header in this case).
 
+**Remember: add the firebase script tags to `/test/index.html`**
+
 You can DDD the Profile component. You have a test for each state:
 1. user
 1. user with no avatar
