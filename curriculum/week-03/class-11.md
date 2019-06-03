@@ -36,7 +36,10 @@ Requires:
 2. Copy Config Setup by clicking the Web Button:
         <br>
         ![firebase config data](get-web-config.png)
-3. Paste config block into `src/services/firebase.js` (see below)
+1. After setting up hosted app, go to settings:
+    - Scroll down to "Your Apps"
+    - Click "CDN" Radio button
+    - Paste relevant config into `src/services/firebase.js` (see below)
 
 ## Config Project
 
@@ -194,9 +197,7 @@ root.appendChild(app.render());
 
 ### User
 
-Here is basic code to put in component that will load user (Today
-that will be `Header`).
-This can be logged initially like below to see that it is working.
+Here is basic code to put in a component that will detect user load. Let's start by putting this code into `index.js` so we can see that Auth is working (we will move to Profile).
 
 ```js
 import { auth } from '../services/firebase.js';
@@ -248,14 +249,14 @@ listeners when they are no longer in use, or if our component re-renders.
 There are a few strategies:
 
 1. Put the listener in a parent component that will update the child
+1. Create wrapper "container" components that sit between the component
+that use the data and its parent.
 1. Create an `unrender` method in our component, store the listener
 in render, and unsubscribe in `unrender`.
 1. Put the listener in the component that will use the data, and
 manually update the dom nodes
-1. Create wrapper "container" components that sit between the component
-that use the data and its parent.
 
-Let's prefer #2, and then #1 where appropriate
+Let's prefer #1...
 
 
 
