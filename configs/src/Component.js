@@ -5,6 +5,10 @@ class Component {
         this.props = props || {};
         this.state = {};
     }
+
+    unrender() {
+        // no-op
+    }
     
     render() {
         return this.renderDOM();
@@ -29,6 +33,7 @@ class Component {
         Object.assign(this.props, props);
         
         const oldRoot = this.rootElement;
+        this.unrender();
         const newDOM = this.render();
         oldRoot.replaceWith(newDOM);
     }

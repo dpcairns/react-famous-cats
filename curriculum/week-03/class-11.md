@@ -230,15 +230,19 @@ ui.start('#firebaseui-auth-container', {
 
 ## Handling Evented Data
 
-For our evented data, we have two choices when using in a component:
+For our evented data, we need to be conscious of **removing** event
+listeners when they are no longer in use, or if our component re-renders.
+
+There are a few strategies:
 
 1. Put the listener in a parent component that will update the child
 1. Put the listener in the component that will use the data, and
 manually update the dom nodes
+1. Create an `unrender` method in our component, store the listener
+in render, and unsubscribe in `unrender`.
+1. Create wrapper "container" components that sit between the component
+that use the data and its parent.
 
-Prefer #1 unless impractical. 
-
-[You can also create a wrapper Component for managing the data]
 
 
 
