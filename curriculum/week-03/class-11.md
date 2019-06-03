@@ -95,6 +95,8 @@ These can go in the `<head>` of the html page:
 </head>
  ```
 
+ **These also need to be added to `/test/index.html`**
+
  For the auth page, also add the firebase UI (script and css):
 
 ```html
