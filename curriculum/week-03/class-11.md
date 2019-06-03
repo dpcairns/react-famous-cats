@@ -1,6 +1,18 @@
 Class 11: User Auth with Firebase/GCP
 ===
 
+## Agenda
+
+1. Firebase Account
+1. Add Firebase Project
+1. Config Project
+1. Adding Firebase References
+1. Firebase Globals
+1. Firebase Config and Setup
+1. Firebase Auth
+1. Firebase UI
+1. Handling Evented Data
+
 Requires:
 
 - [Firebase Account](https://console.firebase.google.com)
@@ -67,7 +79,7 @@ The file structure will look like:
 -- index.html
 ```
 
-## Firebase References
+## Adding Firebase References
 
 Each webpage will add `<script>` tags for firebase modules. `firebase-app.js`
 is always required, then one file per service (auth, database, etc.).
@@ -112,7 +124,7 @@ Add the following globals to your `.eslintrc`:
     },
 ```
 
-## Firebase Config
+## Firebase Config and Setup
 
 Here is the setup for `firebase.js`. Notice we are using **named exports**.
 Not all config values are needed, depends on services. These should be
@@ -236,12 +248,14 @@ listeners when they are no longer in use, or if our component re-renders.
 There are a few strategies:
 
 1. Put the listener in a parent component that will update the child
-1. Put the listener in the component that will use the data, and
-manually update the dom nodes
 1. Create an `unrender` method in our component, store the listener
 in render, and unsubscribe in `unrender`.
+1. Put the listener in the component that will use the data, and
+manually update the dom nodes
 1. Create wrapper "container" components that sit between the component
 that use the data and its parent.
+
+Let's prefer #2, and then #1 where appropriate
 
 
 
