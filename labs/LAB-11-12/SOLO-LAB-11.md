@@ -1,15 +1,17 @@
-# Mob Build: Users for Coin Toss
+# Mob Build: Users for Chat App
 
-The app will bring back our Coin Toss for an online version
+Let's build an online Chat App!
 
 ## Background
 
-Users can play games for (pretend) money.
+Users can chat with each other. There can be multiple chats,
+or rooms. These can be arbitrary or based on some other thing like 
+a movie or pokemon.
 
 ## LAB 11
 
 The goal of Lab 11 is to get user authentication and management set up. If you
-complete this part, start working on your coin flip components.
+complete this part, start working on your chat components.
 
 ## Setup
 
@@ -33,6 +35,7 @@ Separate your components into folders per page (plus shared) `/src/components`:
 
 - `auth`
 - `home` (index)
+- `chat` (for tomorrow)
 - `shared`
 
 ## App
@@ -78,11 +81,13 @@ to check if user exists before subscribing to button!**
 
 ## STRETCH:
 
-Add a **new page** for the coin toss game. Think about design
-of:
-1. The flip and display of coin
-1. Bet, including side and amount
-1. How much money the user has
+Add a **new page** for chat:
+1. List of messages
+1. Input for new message
+
+New components for:
+1. List of rooms
+1. Form for adding a room (or some list of things)
 
 ---
 
