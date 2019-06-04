@@ -1,4 +1,4 @@
-import { auth } from './firebase.js';
+import { auth } from '../services/firebase.js';
 
 auth.onAuthStateChanged(user => {
     if(!user) {
