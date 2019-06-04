@@ -13,7 +13,7 @@ that we are using **version `3`**. Requires an api key, sign up for free.
 As a user, I want to...
 
 1. see a detail view of a movie that...
-    1. has a lot more information that the list view
+    1. has a lot more information than the list view
     1. shows whether then movie is, or is not, currently a favorite
     1. allows me to
         1. click to make it a favorite

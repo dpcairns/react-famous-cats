@@ -12,7 +12,7 @@ that we are using **version `3`**. Requires an api key, sign up for free.
 
 As a user, I want to...
 
-1. search movies so that I can find my favorites
+1. search movies so that I can mark my favorites
 1. click on a movie to make it a favorite
 1. see a list of my favorite movies
 1. see whether a movie in any list is, or is not, currently a favorite
