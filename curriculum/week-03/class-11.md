@@ -271,7 +271,8 @@ Change Live Server extension to use `localhost` instead of `127.0.0.1`:
 If you get 403 Error when trying to use Google OAuth:
 
 1. Click "Learn More" link on page with error
-1. Accept Terms of Service (TOS) if prompted
+1. Accept Terms of Service (TOS) if prompted (click okay
+on the Error dialog, the TOS form is behind it!)
 1. Set the support email
 1. Click "Save"
 
