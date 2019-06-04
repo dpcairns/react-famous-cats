@@ -1,4 +1,4 @@
-# Mob Build: Users for Chat App
+# Solo Build: Users for Chat App
 
 Let's build an online Chat App!
 
