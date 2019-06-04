@@ -6,6 +6,7 @@ Class 12: Reading and Writing Data
 1. Config check
 1. Project templates
 1. Google OAuth
+1. Lab review...
 
 ## Agenda
 
@@ -15,6 +16,7 @@ Class 12: Reading and Writing Data
 1. Realtime DB is All Object
 1. Writing Data
 1. Reading Data
+1. Lab discussion...
 
 ## Firebase Realtime Database Structure
 
