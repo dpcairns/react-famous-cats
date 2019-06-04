@@ -16,6 +16,7 @@ Class 12: Reading and Writing Data
 1. Realtime DB is All Object
 1. Writing Data
 1. Reading Data
+1. Symmetrical Data Injection
 1. Lab discussion...
 
 ## Firebase Realtime Database Structure
@@ -92,6 +93,9 @@ Read data by subscribing to the `'value'` event:
     });
     ```
 
+## Symmetrical Data Injection
+
+Keep inject/write at same level. See `Header`/`Profile`.
 
 
 
