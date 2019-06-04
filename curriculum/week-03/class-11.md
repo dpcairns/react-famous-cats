@@ -260,7 +260,20 @@ manually update the dom nodes
 
 Let's prefer #1...
 
+## Fixing Google OAuth
 
+Change Live Server extension to use `localhost` instead of `127.0.0.1`:
+
+1. Open Preferences (CMD/CTRL + `,`)
+1. Search for "Live Server Host"
+1. Change to `localhost`
+
+If you get 403 Error when trying to use Google OAuth:
+
+1. Click "Learn More" link on page with error
+1. Accept Terms of Service (TOS) if prompted
+1. Set the support email
+1. Click "Save"
 
 
 
