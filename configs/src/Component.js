@@ -1,4 +1,4 @@
-import htmlToDOM from '../html-to-DOM.js';
+import htmlToDOM from './utils/html-to-DOM.js';
 
 class Component {
     constructor(props) {
@@ -6,10 +6,6 @@ class Component {
         this.state = {};
     }
 
-    unrender() {
-        // no-op
-    }
-    
     render() {
         return this.renderDOM();
     }
@@ -33,7 +29,6 @@ class Component {
         Object.assign(this.props, props);
         
         const oldRoot = this.rootElement;
-        this.unrender();
         const newDOM = this.render();
         oldRoot.replaceWith(newDOM);
     }
