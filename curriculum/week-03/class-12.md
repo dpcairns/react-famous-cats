@@ -1,10 +1,20 @@
 Class 12: Reading and Writing Data
 ===
 
+## Misc
+
+1. Config check
+1. Project templates
+1. Google OAuth
+
 ## Agenda
 
 1. Firebase Realtime Database Structure
-
+1. Database Project Console
+1. Tree "Refs"
+1. Realtime DB is All Object
+1. Writing Data
+1. Reading Data
 
 ## Firebase Realtime Database Structure
 
