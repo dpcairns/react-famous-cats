@@ -12,7 +12,24 @@ As a user, I want to...
 
 ## Technical Notes
 
-Store the `uid` as an `owner` property for each room. 
+Show the room list on the home page.
+
+### Room Object
+
+Store the current user's `uid` as an `owner` property for each room. 
+
+```js
+// this generates a random key and assigns to returned ref
+const roomRef = roomsRef.push();
+
+const room = {
+    key: roomRef.key,
+    owner: auth.currentUser.uid,
+    name: nameOfRoom,
+    // anything else you want to add
+}
+roomRef.set(room);
+```
 
 STRETCH: Don't render the delete button if `owner` doesn't match the current user's `uid`
 

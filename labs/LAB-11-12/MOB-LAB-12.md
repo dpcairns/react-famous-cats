@@ -18,6 +18,16 @@ As a user, I want to...
 1. see whether a movie in any list is, or is not, currently a favorite
 1. click on a favorite movie item to un-favorite
 
+## Tech Notes
+
+### Favorite component
+
+In order to update the Favorite to show it's current status, it needs to live
+in own component as a child of the `MovieItem`.
+
+Use the `pokemon._id` as your node key, otherwise it will be hard to remove
+
+
 ---
 
 
