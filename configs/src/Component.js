@@ -29,6 +29,11 @@ class Component {
         Object.assign(this.props, props);
         
         const oldRoot = this.rootElement;
+        
+        if(!oldRoot) {
+            throw new Error(`"update()" was called on Component "${this.constructor.name}", but no prior render has happened. Be sure to call ".render()" before using ".update()"`);
+        }
+
         const newDOM = this.render();
         oldRoot.replaceWith(newDOM);
     }
