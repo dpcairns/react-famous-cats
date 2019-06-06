@@ -7,13 +7,27 @@ Let's build an online Chat App!
 As a user, I want to...
 
 1. go to a chat room page from the home page
-1. send a chat messages
+1. send a chat message
 1. see a realtime list of chat messages from all users with:
     - message
     - user profile image and name
     - date and time of the message
 
 ## Technical Notes
+
+### Message Data Form
+
+Save a message:
+
+```js
+{
+    message: 'what user said'
+    uid: 123, // id of who said this
+    displayName: 'name of user who said this',
+    photoURL: '/url/to/who/said/this.png',
+    date: new Date()
+}
+```
 
 ### DDD ChatList and ChatItem
 
@@ -29,8 +43,9 @@ structured in db would be:
         - `<message-key>`
             - `message`
             - `date`
-            - `userName`
-            - `userProfileUrl`
+            - `uid`
+            - `displayName`
+            - `photoURL`
 
 Feel free to use the method, it will be the most similar to what you have
 done before. If you are interested in a challenge, see the "STRETCH" section below.
