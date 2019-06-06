@@ -25,6 +25,9 @@ As a user, I want to...
 
 ---
 
+## Tech Notes
+
+Show list of other users will require augmenting our data. We will wipe out existing data. 
 
 ## Points Break Down
 
