@@ -15,6 +15,10 @@ As a user, I want to...
 
 ## Technical Notes
 
+### DDD ChatList and ChatItem
+
+You'll need to design ChatList with static data, then make ChatItem and DDD to make data-driven.
+
 ### Data Structure
 
 The chat messages are another "list of data", the simple way to
