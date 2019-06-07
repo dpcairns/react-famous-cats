@@ -25,13 +25,13 @@ Save a message:
     uid: 123, // id of who said this
     displayName: 'name of user who said this',
     photoURL: '/url/to/who/said/this.png',
-    date: Date()
+    date: new Date().toISOString()
 }
 ```
 
 **NOTE:**
 
-We are using `Date()` to create a date that firebase will store. To display that value, you will want to create a date object and format like:
+We are using `new Date().toISOString()` to create a date that firebase will store. To display that value, you will want to create a date object and format like:
 
 ```js
 renderTemplate() {
@@ -45,7 +45,32 @@ renderTemplate() {
 }
 ```
 
-You can also check out libraries like [luxon](https://moment.github.io/luxon/) which do cool stuff like "4 hours ago"
+You can also check out libraries like [moment js](http://momentjs.com/) which do cool stuff like "4 hours ago".
+
+1. Add a script tag:
+    ```html
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+    ```
+1. Add it to globals in .eslintrc:
+    ```json
+    "globals": {
+        // other stuff
+        "moment": false
+    }
+    ```
+1. Use in JavaScript:
+
+```js
+renderTemplate() {
+    const message = this.props.message;
+    const momentDate = moment(message.date);
+
+    // use in your template like:
+    return /*html*/`
+        <p>${momentDate.fromNow()}</p>
+    `;
+}
+```
 
 ### DDD ChatList and ChatItem
 
