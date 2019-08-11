@@ -1,7 +1,7 @@
 {
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": 8,
+    "ecmaVersion": 9,
     "ecmaFeatures": {
       "impliedStrict": true
     },
@@ -12,9 +12,7 @@
     "es6": true
   },
   "globals": {
-    "QUnit": false,
-    "firebase": false,
-    "firebaseui": false
+    "QUnit": false
   },
   "rules": {
     "eqeqeq": ["error", "always"],
