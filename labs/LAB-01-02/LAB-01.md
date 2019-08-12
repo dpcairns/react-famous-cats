@@ -1,46 +1,90 @@
-MOB LAB 01: Photo Gallery
+LAB: Photo Gallery
 ===
 
 Create a photo gallery app. 
 
-## Utility Helpers
+## Setup
+
+### Utility Helpers
 
 You will need:
 
-- `/test/html-equal.js` (don't forget to import in `/test/tests.js`)
+- `/test/html-equal.js` (don't forget to import in `/test/tests.js`!)
 - `/src/html-to-dom.js`
 
 ## Image Data
 
-You can use the supplied images data file or make up your own. Some of the
-image attributes will be used to filter the data, so you can keep the core data simple for today.
+Use the supplied images data file at `data/images.js` next to this file.
 
 ## Process
 
-Use Design-Driven Development:
+### 1. Paper or Whiteboard Wire Frame
 
-1. First create a static example of what you want the rendered images to look like
-1. Use the static html of one of the images to TDD your template function
-1. Replace the static data with dynamically driven data
+1. Page Layout. Draw out what your image gallery will look like on paper or a white board. Though not everything needs to be working today, you should design space for:
+    1. Header with Logo and Title
+    1. Main Section
+        1. Keyword filter dropdown (select)
+        1. Sort options: title or horns
+        1. Card-like list of images showing:
+            1. image
+            1. title 
+            1. number of horns
+            1. description on `title` attribute hover
+    1. Footer
+1. Decide semantics and structure
+    1. Label the pieces of your drawing with what elements you will use.
+    1. Design the layout requirements. How should things be aligned and layout? Write this onto your drawing.
+    1. Based on above, pick a CSS layout strategy and write this on your drawing.
+1. Decide on styling (make notes on your drawing)
+    1. Fonts
+    1. Color
+    1. Whitespace (padding and margins)
+    1. Stylistic images/designs
+1. **Include a picture of your final drawing in your repo**
 
-Orchestrate and Integrate:
+### 2. Static HTML/CSS Example
 
-1. `index.js` is where the action will happen
-1. import template function
+Create a static example of your html and css. You can create "shells" for list items beyond the first one. _You do not need to flush out the filter or sort options today_, you can leave a "box" where you intend to put these. If you have time, as a stretch goal work on these (see below).
+
+### 3. Make Data-Driven Template
+
+Replace the static data with dynamically driven data:
+
+1. Create a test that calls a `renderHTML` template function and asserts
+that the result is the same as the static html
+1. Make the test pass by returning the exact same static html 
+from the template function
+1. Create a data object in your test, and pass to `renderHTML` function.
+1. In `renderHTML`, add a parameter for the data and begin to replace the static html in the template function with object properties passed into the template function
+1. When the template is fully dynamic and the test passes, 
+you now have a tested, usable template function!
+
+### 4. Orchestrate and Integrate:
+
+1. `app.js` is where the action will happen
+1. import `renderHTML` template function
 1. import `htmlToDOM` function
-1. import array image data
+1. import array of image data
 1. reference the target parent element (`<ul>`)
 1. call `.forEach` on the array of images, passing a callback function
-1. For each image
+1. For each image:
     1. Convert image object to html using template
     1. Convert html to DOM using htmlToDOM
     1. Append to list parent (`<ul>`)
 
-## STRETCH: Header
+## STRETCH
 
-Make a separate template function (using DDD process) for your header. It
+NOTE: You will need to accomplish these tomorrow if you don't have time today.
+
+### Design Filter and Sort
+
+Work out HTML and CSS for the filter and sort components.
+
+### Header as Component
+
+Make a separate template function for your header. It
 doesn't take any data, but can still return html (which can be made into DOM).
-Call it `templateHeader` or something that won't conflict with image template.
+Call it `renderHeaderHTML` or something that won't conflict with image template.
 Import, call, and append DOM in `index.js`
 
 ---
@@ -49,9 +93,7 @@ Import, call, and append DOM in `index.js`
 
 Looking For | Points (10)
 :--|--:
-Semantic and Idiomatic HTML and CSS  | 2 
-TDD template function | 2
-Use functional `.forEach` for looping | 2
-Works correctly | 2
-Project and code files are: indented / spaced correctly / clean | 2 
-Header template | +3 
+Wire Frame Design with Annotations | 4 
+TDD `renderHTML` template function with dynamic data | 3
+Orchestration in `app.js` works correctly | 2
+Use functional `.forEach` for looping to create Image components | 1
