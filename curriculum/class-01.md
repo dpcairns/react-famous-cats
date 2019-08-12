@@ -9,6 +9,7 @@ Use JavaScript templates to render list of data dynamically
 - `<template>` Element
 - Array `.forEach` method
 - Pairing
+- Code Challenges
 
 ## Design-Driven Development
 
@@ -113,3 +114,13 @@ images.forEach(image => {
     1. Switch at each interval (20 minutes)
     1. Switch computers (full git acp, push, pull)
     1. Follow roles
+
+## Code Challenges
+
+Let's review the code challenge repo and process!
+
+Sneak peak at `npm`:
+1. `package.json` - track things via a manifest
+1. `npm i eslint -D` - install and track
+1. `npm i` - install
+1. scripts: `npm test` - run common commands like testing
