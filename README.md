@@ -1,9 +1,8 @@
 # Bootcamp 2
 
-
 ## Developer Focus
 
-### Design
+### Design (Technical & Product)
 
 Upfront planning to figure out problem _before_ coding
 
@@ -28,3 +27,22 @@ Improve ability to solve problems, and/or get effective help
 3. Avoid these types of explaining:
     1. Pleading Your Case
     1. Memoirs and Histories
+
+## Class
+
+### Code Challenges
+
+There are daily code challenges:
+
+1. Work on these starting end of class
+1. Collaborative start, individual finish
+1. Try and be complete by next morning
+1. (Don't start paired labs till morning)
+1. Final submissions due before start of project week
+
+### Warm Ups
+
+1. 15 minute challenges + discussion at start of class
+1. Involves guessing as to what code might do
+1. Includes other languages
+1. Not graded
