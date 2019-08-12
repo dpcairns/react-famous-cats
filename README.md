@@ -30,6 +30,10 @@ Improve ability to solve problems, and/or get effective help
 
 ## Class
 
+### Readings
+
+More readings, try and keep up!
+
 ### Code Challenges
 
 There are daily code challenges:
