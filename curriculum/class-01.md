@@ -25,12 +25,15 @@ Use JavaScript templates to render list of data dynamically
     1. Label the pieces of your drawing with what elements you will use.
     1. Design the layout requirements. How should things be aligned and layout? Write this onto your drawing.
     1. Based on above, pick a CSS layout strategy and write this on your drawing.
-1. Decide on styling (make notes on your drawing)
+1. Decide on high-level styling (make notes on your drawing)
     1. Fonts
     1. Color
     1. Whitespace (padding and margins)
     1. Stylistic images/designs
 
+### Static HTML/CSS
+
+Implement your HTML and CSS. This will be better place to address css styling!
 
 ### Static-to-Dynamic Template
 
