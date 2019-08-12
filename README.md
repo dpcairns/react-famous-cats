@@ -46,3 +46,7 @@ There are daily code challenges:
 1. Involves guessing as to what code might do
 1. Includes other languages
 1. Not graded
+
+### Retros
+
+In lieu of journal assignments, you will have a daily "retro" to complete.
