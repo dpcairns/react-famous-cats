@@ -34,6 +34,8 @@ Improve ability to solve problems, and/or get effective help
 
 More readings, try and keep up!
 
+First week is heaviest.
+
 ### Code Challenges
 
 There are daily code challenges:
