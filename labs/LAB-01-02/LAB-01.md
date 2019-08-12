@@ -84,8 +84,8 @@ Work out HTML and CSS for the filter and sort components.
 
 Make a separate template function for your header. It
 doesn't take any data, but can still return html (which can be made into DOM).
-Call it `renderHeaderHTML` or something that won't conflict with image template.
-Import, call, and append DOM in `index.js`
+Call it `renderHeaderHTML` or something that won't conflict with image template
+render function. Import, call, and append DOM in `index.js`
 
 ---
 

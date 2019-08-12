@@ -1,32 +1,14 @@
-Class 01: JavaScript Templates
-===
+# Class 01: JavaScript Templates and Array `.forEach`
 
 Use JavaScript templates to render list of data dynamically
 
 ## Agenda
 
-- Developer Focus
 - Design-Driven Development
 - Template functions with Template Literals
 - `<template>` Element
 - Array `.forEach` method
 - Pairing
-
-## BC2 Developer Focus
-
-Design:
-
-- Analyze
-- Synthesize
-- Integrate
-
-Diagnose:
-
-- Expected/Actual
-- Feedback Discovered
-- Avoid:
-    - Making a Case
-    - Narrative Stories
 
 ## Design-Driven Development
 
@@ -129,4 +111,5 @@ images.forEach(image => {
 1. Install `mobster` or other timer.
 1. You **must**:
     1. Switch at each interval (20 minutes)
+    1. Switch computers (full git acp, push, pull)
     1. Follow roles
