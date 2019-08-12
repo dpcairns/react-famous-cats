@@ -6,12 +6,12 @@
 
 Upfront planning to figure out problem _before_ coding
 
-![Doing Sofware Development](./guides/assets/doing-sw-dev.png)
-
 ### Balance
 
 1. Practice to grow: `competent` --> `proficient` --> `fluent`
 1. Know how to progress when you don't know
+
+![Doing Sofware Development](./guides/assets/doing-sw-dev.png)
 
 ### Skills
 
