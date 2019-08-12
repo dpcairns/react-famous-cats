@@ -50,19 +50,19 @@ Create a static example of your html and css. You can create "shells" for list i
 
 Replace the static data with dynamically driven data:
 
-1. Create a test that calls a `renderHTML` template function and asserts
+1. Create a test that calls a `renderImage` template function and asserts
 that the result is the same as the static html
 1. Make the test pass by returning the exact same static html 
 from the template function
-1. Create a data object in your test, and pass to `renderHTML` function.
-1. In `renderHTML`, add a parameter for the data and begin to replace the static html in the template function with object properties passed into the template function
+1. Create a data object in your test, and pass to `renderImage` function.
+1. In `renderImage`, add a parameter for the data and begin to replace the static html in the template function with object properties passed into the template function
 1. When the template is fully dynamic and the test passes, 
 you now have a tested, usable template function!
 
 ### 4. Orchestrate and Integrate:
 
 1. `app.js` is where the action will happen
-1. import `renderHTML` template function
+1. import `renderImage` template function
 1. import `htmlToDOM` function
 1. import array of image data
 1. reference the target parent element (`<ul>`)
@@ -82,10 +82,8 @@ Work out HTML and CSS for the filter and sort components.
 
 ### Header as Component
 
-Make a separate template function for your header. It
-doesn't take any data, but can still return html (which can be made into DOM).
-Call it `renderHeaderHTML` or something that won't conflict with image template
-render function. Import, call, and append DOM in `index.js`
+Make a separate template function called `renderHeader` for your header. It
+doesn't take any data (which means no test), but can still return html (which can be made into DOM). Import, call, and append DOM in `app.js`
 
 ---
 
@@ -94,6 +92,6 @@ render function. Import, call, and append DOM in `index.js`
 Looking For | Points (10)
 :--|--:
 Wire Frame Design with Annotations | 4 
-TDD `renderHTML` template function with dynamic data | 3
+TDD `renderImage` template function with dynamic data | 3
 Orchestration in `app.js` works correctly | 2
 Use functional `.forEach` for looping to create Image components | 1
