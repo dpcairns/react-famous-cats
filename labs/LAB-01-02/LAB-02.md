@@ -10,7 +10,7 @@ You will need:
 
 - `/test/html-equal.js` (don't forget to import in `/test/tests.js`)
 - `/src/html-to-dom.js`
-- `/src/components/Component.js`
+- `/src/Component.js`
 
 ## Image Data
 
@@ -31,9 +31,9 @@ Component Tree:
 - `index.html`
 - `/data/images.js`
 - `/src/index.js` - creates App and appends to DOM
-- `/src/components/App.js` - top level component
-- `/src/components/Header.js` - header component
-- `/src/components/ImageList.js` - image list component
+- `/src/App.js` - top level component
+- `/src/Header.js` - header component
+- `/src/ImageList.js` - image list component
 
 Build out basic tree of app, starting at top and working down. The `App` component
 should introduce the image list data, passing as a prop to `ImageList`. 
@@ -43,7 +43,7 @@ data via props.
 
 ## 2. DDD `ImageItem` component
 
-- `/src/components/ImageItem.js`
+- `/src/ImageItem.js`
 - `/test/ImageItem.test.js`
 
 Here is where you would build out static example of individual items. Since you did that 
@@ -52,7 +52,7 @@ yesterday, practice using DDD to build out the `renderHTML` method of the
 
 ## 3. Create `ImageItem` children in `ImageList`
 
-- `/src/components/ImageList.js`
+- `/src/ImageList.js`
 
 In the `onRender` method of `ImageList`, create an `ImageItem` component instance
 "for each" image in the images data, and append to the `<ul>`. This is similar to
@@ -60,12 +60,12 @@ the logic currently in `app.js`
 
 ## 4. Filter Images
 
-- `/src/components/FilterImages.js`
+- `/src/FilterImages.js`
 
 Start by using DDD to create a static example, then turn that into `FilterImages` component. It needs an `onFilter` callback function prop that it should call when 
 the dropdown changes
 
-- `/src/components/App.js`
+- `/src/App.js`
 
 1. Place the `FilterImages` component into `App` at the appropriate spot.
 1. You will need to pass the callback prop `onFilter` to `FilterImages`
@@ -78,7 +78,7 @@ Change `FilterImages` to take a list of images as a prop and derive keywords fro
 
 ## 5. STRETCH: Sort Images
 
-- `/src/components/SortImages.js`
+- `/src/SortImages.js`
 
 Create a sort component that offers choice of Title or Horns. Use a callback to apply the sort.
 
@@ -86,8 +86,8 @@ NOTE: You will need to save the filter and sort choice in `App` for both to work
 
 ## STRETCH: Add Image
 
-- `/src/components/App.js`
-- `/src/components/AddImage.js`
+- `/src/App.js`
+- `/src/AddImage.js`
 
 Create a new `AddImage` component that has a form with data need to create an image.
 It will expect to be passed an `onAdd` callback function as a prop. In the `onRender` method,
@@ -103,9 +103,9 @@ image data.
 
 ## STRETCH: Delete Image
 
-- `/src/components/App.js`
-- `/src/components/ImageList.js`
-- `/src/components/ImageItem.js`
+- `/src/App.js`
+- `/src/ImageList.js`
+- `/src/ImageItem.js`
 
 Augment `ImageItem` to display a delete button (you will need to update test). In the `onRender`
 method, subscribe to the `click` event and pass the `image` object to the `onRemove` prop.
