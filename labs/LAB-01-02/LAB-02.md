@@ -62,16 +62,19 @@ the logic currently in `app.js`
 
 - `/src/components/FilterImages.js`
 
-Start by using DDD to create a static example that has unique list of all of the keywords
-from your image data. Then create your `FilterImages` component and pass `images` (you can import the data) as a prop to the component. You will need to write code the produces array of unique keyword values, and use that to render options. You can use `array.map` to produce the
-html for each `<option>`;
+Start by using DDD to create a static example, then turn that into `FilterImages` component. It needs an `onFilter` callback function prop that it should call when 
+the dropdown changes
 
 - `/src/components/App.js`
 
 1. Place the `FilterImages` component into `App` at the appropriate spot.
-1. You will need to pass the array of `images` **and** a callback prop `onFilter` to `FilterImages`
+1. You will need to pass the callback prop `onFilter` to `FilterImages`
 1. In your callback, you will need to filter the images array and call `.update` on
 the `ImageList` component with the filtered array.
+
+**STRETCH**
+
+Change `FilterImages` to take a list of images as a prop and derive keywords from the data.
 
 ## 5. STRETCH: Sort Images
 

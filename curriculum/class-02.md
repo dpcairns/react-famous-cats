@@ -100,8 +100,7 @@ Used on the defined Component:
 method | purpose
 ---|---
 `renderHTML` | Generate the html for this component, has access to props and state
-`onRender` |  Called with created DOM, use for custom work like appending
-child components and subscribing to events.
+`onRender` |  Called with created DOM, use for custom work like appending child components and subscribing to events.
 `constructor` | Rarely used, but can can be used for initialization logic when needed. Must call `super(props)`
 `update` | Override for alternative logic to replacing content (see below)
 `<custom>` | Custom methods for specific types of updating
