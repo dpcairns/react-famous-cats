@@ -10,6 +10,7 @@ Use JavaScript Components to render list of data dynamically
 - Decomposing the UI
 - Component Communication
 - Updating Components
+- Array `map`, `filter`, `sort`
 
 ## Review: JavaScript Classes
 
@@ -122,4 +123,10 @@ The good news for us is that we don't need to worry about efficient updates. We 
 
 If there is a targeted update to be done, we can create a custom method for that action. 
 
+## Array `map`, `filter`, and `sort`
 
+method | new array? | purpose
+---|---|---
+map | Yes | Array to array transformation for every item
+filter | Yes | New array only has "truthy" items
+sort | No (returns same array) | sort existing array
