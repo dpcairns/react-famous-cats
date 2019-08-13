@@ -17,6 +17,7 @@ Use JavaScript Components to render list of data dynamically
 - Classes typically combine some data (state) with behavior (methods)
 - Classes are created using the `new` keyword
 - To reference the current instance in a class method, use the `this` keyword
+- Extend a class using the `extends` keyword
 
 ## Component Classes
 
