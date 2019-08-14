@@ -18,20 +18,21 @@ Organize with folders:
 - src
     - components
         - app
+            - app.css
             - App.js
-            - App.css
-            - Header.css
+            - header.css
             - Header.js
         - options
             - ...
         - pokedex
             - ...
         - Component.js
-            - ...
+        - html-to-DOM.js
     - main.css
     - reset.css
     - index.js
 
+**NOTE:** update `comp` snippet to use `../Component`
 
 ## RWD
 
