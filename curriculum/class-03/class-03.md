@@ -9,7 +9,7 @@ Class 03: RWD and fetch/Promises
 - Warm Up
 - RWD
 - Project Folders
-- 
+- fetch/async
 - Code Challenge 
 
 ## Warm Up
