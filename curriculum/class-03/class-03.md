@@ -93,14 +93,6 @@ Organize with folders:
 
 Use the `fetch` browser command and JavaScript Promises
 
-## Agenda
-
-1. Distributed Systems
-1. Async JavaScript
-1. Promises
-1. Using `fetch` for Data
-1. Component Design Process
-
 ## Distributed Systems
 
 Application span multiple computers, and can include:
@@ -109,6 +101,10 @@ Application span multiple computers, and can include:
 1. Servers you write
 1. Database servers you run
 1. Other people's servers you access
+
+### Web Request Response Cycle
+
+![WRRC](./simple-wrrc.png)
 
 ## Asynchronous JavaScript
 
