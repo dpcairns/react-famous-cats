@@ -18,9 +18,9 @@ Organize with folders:
 - src
     - components
         - app
-            - app.css
+            - App.css
             - App.js
-            - header.css
+            - Header.css
             - Header.js
         - options
             - ...
