@@ -46,7 +46,7 @@ Try and solve in simplest way
 ### Media Query
 
 Media queries allow us to selectively apply css based on 
-device characteristics
+device characteristics.
 
 ```css
 
@@ -61,6 +61,8 @@ device characteristics
     width:960px;
   }
 }
+
+Media query is **more specific** than without
 
 ```
 
