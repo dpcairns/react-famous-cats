@@ -62,9 +62,9 @@ device characteristics.
   }
 }
 
-Media query is **more specific** than without
-
 ```
+
+Media query is **more specific** than without
 
 Also: 
 
