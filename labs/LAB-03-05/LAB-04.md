@@ -43,6 +43,10 @@ Both components need to:
     1. on load
     1. when hash changes if not updated by `App`
 
+## STRETCH: Sort
+
+Sort component with field and direction!
+
 ## App
 
 `App` needs to orchestrate loading the data repetitively. It will need to listen
