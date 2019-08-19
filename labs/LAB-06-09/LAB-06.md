@@ -10,6 +10,14 @@
 
 [Dotenv Docs](https://www.npmjs.com/package/dotenv)
 
+## Front End
+
+Code: 
+https://github.com/alchemycodelab/city-explorer-front-end.git
+
+Live site:
+https://alchemycodelab.github.io/city-explorer-front-end/
+
 ## Configuration
 
 - `data` directory - with [geo.json](https://codefellows.github.io/code-301-guide/curriculum/class-06/lab/starter-code/data/geo.json) and [darksky.json](https://codefellows.github.io/code-301-guide/curriculum/class-06/lab/starter-code/data/darksky.json)
@@ -41,8 +49,6 @@ In labs 6 through 9, you will be building a stand-alone back end which will inte
 Every day, you and your new partner(s) will deploy your back end as a new instance on Heroku.
 
 You will have access to view the code base for the client, but will not be able to modify it in any way.
-
-https://github.com/alchemycodelab/city-explorer-front-end.git
 
 For this lab assignment, you will convert a location entered by the user into a latitude and longitude, then use those values to request weather information for that location. As your City Explorer back end progresses in labs 6 through 9, you will use the latitude and longitude to request information from other APIs from the same search query.
 
