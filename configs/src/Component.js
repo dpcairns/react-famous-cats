@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 import htmlToDOM from './html-to-DOM.js';
 
 class Component {
     constructor(props) {
         this.props = props || {};
         this.state = {};
+        // console.log(`Component "${this.constructor.name}" got props:` + '\n' + JSON.stringify(this.props, true, 2));
     }
 
     onRender(/*dom*/) {
