@@ -27,40 +27,22 @@ lab-06-repository
    |     ├── darksky.json
    |     └── geo.json
    ├── .env
-   ├── .eslintrc.json
+   ├── .eslintrc
    ├── .gitignore
    ├── package-lock.json
    ├── package.json
    └── server.js
 ```
 
-## User Acceptance Tests
-
-### Time Estimate
-
-For each of the features listed below, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
-
-```
-Number and name of feature: ________________________________
-
-Estimate of time needed to complete: _____
-
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____
-```
-
-Add this information to your README.
-
-### Overview
+## Overview
 
 In labs 6 through 9, you will be building a stand-alone back end which will interact with a static front end. Working with a new partner each day, you will request data from a total of six third-party APIs, modify the data as needed, and send the data to the client to be displayed in the browser. In labs 8 and 9, you will be persisting data in a SQL database.
 
 Every day, you and your new partner(s) will deploy your back end as a new instance on Heroku.
 
 You will have access to view the code base for the client, but will not be able to modify it in any way.
+
+https://github.com/alchemycodelab/city-explorer-front-end.git
 
 For this lab assignment, you will convert a location entered by the user into a latitude and longitude, then use those values to request weather information for that location. As your City Explorer back end progresses in labs 6 through 9, you will use the latitude and longitude to request information from other APIs from the same search query.
 
