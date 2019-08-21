@@ -97,3 +97,12 @@ _Your `README.md` must include:_
 
 ```
 
+
+## Points Break Down
+
+Looking For | Points (10)
+:--|--:
+Deployed and functional on Heroku | 4
+Correct express routes with error handling | 2
+Geocode data and transform | 2
+Weather data and transform | 2
