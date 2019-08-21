@@ -2,11 +2,14 @@ Class 08: SQL & Postgres
 ===
 
 ## Agenda
+1. Warm Up
+1. Code Challenges
 1. Questions?
+1. Code Challenges
 1. CRUD and SQL
 1. Lab Prep
 
-## BONUS!
+## Server Logging!
 
 Install `morgan` middleware for improved server logging!
 
@@ -19,6 +22,10 @@ app.use(morgan('dev'));
 * Understand the basic concepts of databases
 * Effectively use basic SQL commands to create, read, update, and delete rows from a table
 * Understand the fundamental architecture of full-stack applications and how we can locally emulate them
+
+## Code Challenges
+
+![map, filter, reduce in emoji](map-filter-reduce-in-emoji.png)
 
 ## SQL and CRUD
 

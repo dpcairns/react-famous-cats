@@ -13,7 +13,7 @@ Pick an "entity" (resource) for your app. Ideally, something of interest to you.
     * string/text
     * number
     * boolean (true/false)
-    * string/text "type" attribute that would be something in a dropdown
+    * string/text that would be something in a dropdown, either an attribute type or related resource
 
 ## Project
 
