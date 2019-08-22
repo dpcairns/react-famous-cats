@@ -26,7 +26,17 @@ For running your project locally, you should:
 
 1. Open the repo folder into a vscode instance and do server development here
 1. Open the `public` folder into a separate vscode instance and do
-the front end development from here. This will make `live-server` `eslint` behave normally. 
+the front end development from here. This will make `live-server` `eslint` behave normally.
+
+Add these settings to VSCODE:
+
+```json
+    "liveServer.settings.proxy": {
+        "enable": true,
+        "baseUri": "/api",
+        "proxyUri": "http://localhost:3000/api"
+    },
+```
 
 ### Overall file structure
 
@@ -75,10 +85,11 @@ the front end development from here. This will make `live-server` `eslint` behav
         * `index.html` 
         * `{resource}-list.html` 
         * `{resource}-form.html` 
-    * `.eslintrc`, 
-    * `.gitignore`, 
-    * `.env`, 
-    * `.env.example`, 
+    * `.eslintrc` 
+    * `.gitignore` 
+    * `.env`
+    * `.env.example`
+    * `.travis.yml` 
     * `package-lock.json`
     * `package.json`
     * `README.md`
@@ -98,18 +109,35 @@ Goal for Lab:
 The server needs to:
 
 1. Use `cors()` to handle direct request from app
+1. Use `express.static('public')` to server your app
 1. Have data scripts for:
     1. creating tables 
     1. dropping tables
     1. load seed data
     1. do all three steps above
-1. Create a `.json` or `.js` file with initial
+1. Create a `.json` or `.js` file with initial data
 1. Handle a `GET` to `/api/<your-resource-plural>` and return list of data
 
 ## Deploy
 
 Deploy to heroku with added pg instance. 
 * Don't forget to seed data!
+
+Here is `.env` setup for managing both local and
+production postgres instances
+
+```sh
+# *** Database ***
+
+# - DEVELOPMENT:
+DATABASE_URL=postgres://localhost:5432/famous_cats
+# - WINDOWS:
+# DATABASE_URL=postgres://<username>:<password>@localhost:5432/famous_cats
+
+# - PRODUCTION:
+#DATABASE_URL={copy from "> heroku config"}
+#PGSSLMODE=require
+```
 
 ## STRETCH
 
