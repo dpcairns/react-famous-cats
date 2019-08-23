@@ -5,8 +5,8 @@ Lab 09: New Data
 
 1. Normalize Database
 1. Add a new resource
-1. Detail View with Delete
-1. STRETCH: Edit resource
+1. Detail view page
+    - STRETCH: with Delete
 
 ## Project
 
@@ -17,25 +17,29 @@ Continue with same team and project as `LAB-08`
 Listed below by App and Server, but make sure to **Work in vertical slices**:
 
 1. Technology update
-    - pg Client module
     - schema change (two tables)
 1. Add a resource
-1. Detail Page
-1. STRETCH: Edit resource
+1. New Detail Page
 
 ## App
 
 1. Form Page for new resource
     - needs to load secondary resource of lookup values
-1. Detail Page for single resource
+1. New Detail Page for single resource
 1. Add new methods to Service API module
-1. STRETCH: 
-    - Add query parameter to add page for edit
-    - Add update method to Service API module
+
+Example service method for getting one resource:
+
+```js
+export function getCat(id) {  
+    const url = `${URL}/cats/${id}`;
+    return fetch(url)
+        .then(response => response.json());
+}
+```
 
 ## Server
 
-1. Update to common `pg` `Client` module
 1. Update scripts for two related tables
 1. Load additional seed data
 1. Update `GET /resources` route to use `SQL` to join tables
