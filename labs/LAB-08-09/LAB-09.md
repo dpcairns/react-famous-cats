@@ -48,6 +48,7 @@ export function getCat(id) {
     - returns full copy of resource from database
 1. Create new `GET /resource/:id` route for single resource detail
     - JOIN for lookup value, but include foreign key
+    - Return 404 if resource not found in database
 
 ## Deploy
 
