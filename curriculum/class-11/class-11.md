@@ -8,6 +8,10 @@ Class 11: Add, update, delete from List
 * RESTful HTTP
 * Modifying same page data
 
+## Consolidate `pg` client
+
+Single module for managing `postgres` connection
+ 
 ## RESTful HTTP
 
 Routes:
