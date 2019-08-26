@@ -1,0 +1,1 @@
+There was no lab on class 10
