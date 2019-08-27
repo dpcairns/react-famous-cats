@@ -12,6 +12,8 @@ Improved pg client module:
 
 ### Authentication
 
+**The server _must_ mistrust the incoming client request**
+
 Leveraging new modules:
 1. [`bcryptjs`](https://www.npmjs.com/package/bcryptjs)
 1. [`jsonwebtoken`](https://www.npmjs.com/package/jsonwebtoken)
@@ -106,3 +108,8 @@ app.get('/api/test', (req, res) => {
 
 
 ## App
+
+1. Create a new `auth.html` page that can handle both "sign up" and "sign in"
+1. Manage an access token in local storage
+    1. Append to data requests
+    1. Redirect if not present on "protected" pages

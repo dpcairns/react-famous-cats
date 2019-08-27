@@ -28,7 +28,10 @@ Use the same project structure as for the prior lab, a single repository with th
 
 ## Server 
 
-Refer to class-12 agenda for detailed server steps
+1. Refer to class-12 agenda for detailed steps in setting up users and auth on server
+1. Add a `user_id` foreign key to `todos` table.
+    1. Add `req.userId` on `INSERT`
+    1. Add `WHERE user_id = $1` with `req.userId` on `SELECT`, `UPDATE`, and `DELETE` of todos
 
 ## App
 
