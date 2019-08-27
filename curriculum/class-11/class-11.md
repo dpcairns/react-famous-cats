@@ -46,5 +46,5 @@ Routes:
 action | result
 ---|---
 Add | `push` into array
-Update | `findIndex` and `splice` into array
-Remove | `findIndex` and `splice` out of array
+Update | `indexOf` and `splice` into array
+Remove | `indexOf` and `splice` out of array

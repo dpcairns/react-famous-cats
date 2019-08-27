@@ -5,7 +5,7 @@ LAB 11: Fullstack TODO list
 
 One-day solo lab! (but collaborate as much as needed)
 
-Create an app with a single page for tracking TODOs
+**Deployed** app with a single page for tracking TODOs
 
 1. Display a list of todos and indicate whether or not complete
 1. Have a form for adding a todo
