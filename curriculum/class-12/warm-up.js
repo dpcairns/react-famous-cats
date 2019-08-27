@@ -1,7 +1,3 @@
-# Warm-Up Exercise
-This code sample is written in JavaScript and JSX. Read through the code and determine the output for this function.
-
-```js
 import React, { Component } from "react";
 
 export default class Team extends Component {
@@ -63,4 +59,3 @@ export default class Team extends Component {
     );
   }
 }
-```

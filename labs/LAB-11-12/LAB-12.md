@@ -30,7 +30,7 @@ Use the same project structure as for the prior lab, a single repository with th
 
 1. Refer to class-12 agenda for detailed steps in setting up users and auth on server
 1. Add a `user_id` foreign key to `todos` table.
-    1. Add `req.userId` on `INSERT`
+    1. Add `req.userId` on `INSERT` `user_id` foreign key
     1. Add `WHERE user_id = $1` with `req.userId` on `SELECT`, `UPDATE`, and `DELETE` of todos
 
 ## App
@@ -48,7 +48,9 @@ Use the same project structure as for the prior lab, a single repository with th
     
 ### API Services
 
-Need to look for token in `localStorage` and append to request
+Need to look for token in `localStorage` and:
+1. Redirect if no token
+1. Append to each request if there is a token
 
 1. `signup(user)`
 1. `signin(credentials)`
