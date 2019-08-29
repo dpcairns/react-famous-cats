@@ -352,7 +352,7 @@ Individual effort is graded based on links to commits and Pull Requests that dem
 
 Technical merit is graded based on the following criteria:
 
-- Good and proper use of HTML and EJS
+- Good and proper use of HTML and Templates
   - Clear, readable, and efficient structure
   - Uses semantic markup whenever possible
   - Organized into pages and partials for DRY code
