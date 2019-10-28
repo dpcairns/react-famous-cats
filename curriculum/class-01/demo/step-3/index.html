@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famous Cats</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="home/cat-list.css">
+    <link rel="stylesheet" href="home/options.css">
+</head>
+<body>
+    <header>
+        <img src="assets/alchemy-logo.png" alt="Alchemy Code Lab Logo">
+        <h1>Famous Cats</h1>
+    </header>
+    
+    <main>
+        <section class="options">
+            <select class="cat-type-filter">
+                <option value="" selected>All Types</option>
+                <option value="Angora">Angora</option>
+                <option value="Tuxedo">Tuxedo</option>
+                <option value="Orange Tabby">Orange Tabby</option>
+                <option value="Manx">Manx</option>
+            </select>
+        </section>
+        
+        <section class="list-section">
+            <ul class="cats"></ul>
+        </section>
+
+    </main>
+
+    <script src="home/app.js" type="module"></script>
+</body>
+</html>
