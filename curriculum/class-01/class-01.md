@@ -1,15 +1,10 @@
-# Class 01: JavaScript Templates and Array `.forEach`
+# Class 01: JavaScript Templates, DDD, and Array `.forEach` and `.filter`
 
 Use JavaScript templates to render list of data dynamically
 
-## Agenda
+## Reset CSS
 
-- Design-Driven Development
-- Template functions with Template Literals
-- `<template>` Element
-- Array `.forEach` method
-- Pairing
-- Code Challenges
+Today's demo and lab include a `reset.css`. [Let's look at this article](https://meyerweb.com/eric/tools/css/reset/)
 
 ## Design-Driven Development
 
