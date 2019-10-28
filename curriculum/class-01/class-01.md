@@ -42,7 +42,7 @@ A process for creating dynamically rendered HTML via template.
 The recipe is as follows:
 
 1. Statically design one or more instances of the final html
-and css you would like to create (based on wireframe).
+and css you would like to create (based on wireframe). You can put in additional placeholder `<li>`
 2. Create a test that calls a template function and asserts
 that the result is the same as the static html
 3. Make the test pass by returning the exact same static html 
@@ -85,6 +85,11 @@ function renderHTML(data) {
 }
 ```
 
+## Testing HTML equal
+
+Because our test html and template function html may have different amounts of whitespace (for example, 2 tabs vs 3 tabs), we use a custom qunit assertion that normalizes whitespace.
+
+Let's take a look at `htmlEqual` function and test.
 
 ## `<template>` element
 
@@ -106,6 +111,8 @@ function htmlToDOM(html) {
     return firstElementChild;
 }
 ```
+
+Let's take a look at test for `htmlToDOM`...
 
 ## Array `.forEach` method
 
