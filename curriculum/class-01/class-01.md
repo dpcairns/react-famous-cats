@@ -63,7 +63,7 @@ returning the created DOM. It follows a standard recipe:
 
 ```js
 // 1) Define a template function
-function template(data) {
+function renderHTML(data) {
 
     // 2) Make HTML string via template literal
     const html = /*html*/`
@@ -72,6 +72,16 @@ function template(data) {
     
     // 3) return html
     return html;
+}
+```
+
+This can be shortened to:
+
+```js
+function renderHTML(data) {
+    return /*html*/`
+        <p>template literal for ${data.property}</p>
+    `;
 }
 ```
 
@@ -110,13 +120,27 @@ images.forEach(image => {
 });
 ```
 
-## Pairing
+## Removing DOM nodes
 
-1. Install `mobster` or other timer.
-1. You **must**:
-    1. Switch at each interval (20 minutes)
-    1. Switch computers (full git acp, push, pull)
-    1. Follow roles
+By testing if an element has a last element child, you can remove each child until no more children remain:
+
+```js
+while(list.lastElementChild) {
+    list.lastElementChild.remove();
+}
+```
+
+## Array `.filter` method
+
+Make a new array from an array by testing each element (item) of the array, returning a truthy response if it should be included in the new array:
+
+```js
+const numbers = [1, 6, 2, 3, 5];
+const evenNumbers = numbers.filter(number => {
+    return number % 2 === 0;
+});
+console.log(evenNumbers); // [6, 2]
+```
 
 ## Code Challenges
 
