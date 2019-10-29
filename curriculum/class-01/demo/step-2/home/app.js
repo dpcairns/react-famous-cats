@@ -11,10 +11,10 @@ const list = document.querySelector('.cats');
 // loop the cat data
 cats.forEach(cat => {
     // call template function to get html
-    const html = renderCatItem(cat);
+    const htmlString = renderCatItem(cat);
 
     // make DOM from html
-    const dom = htmlToDOM(html);
+    const dom = htmlToDOM(htmlString);
 
     // append to the list
     list.appendChild(dom);

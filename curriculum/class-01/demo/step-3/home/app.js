@@ -5,24 +5,58 @@ import renderCatItem from './render-cat-item.js';
 const list = document.querySelector('.cats');
 const catTypeFilter = document.querySelector('.cat-type-filter');
 
+
 catTypeFilter.addEventListener('change', () => {
-    const filter = catTypeFilter.value;
+
+    const filterString = catTypeFilter.value;
     let filteredCats = null;
 
-    if (!filter) {
+    if (!filterString) {
         filteredCats = cats;
     }
     else {
         filteredCats = cats.filter(cat => {
-            return cat.type === filter;
+            // should this be in the new array?
+            if (cat.type === filterString) {
+                return true;
+            } else {
+                return false;
+            }
         });
     }
 
-    render(filteredCats);
+    const coolCats = filteredCats.map(cat => {
+        return {
+            appelation: cat.name,
+            bornOn: cat.year,
+            website: cat.url,
+            category: cat.type
+        };
+    });
+
+    console.log(coolCats);
+
+    render(coolCats);
 });
 
 // kick off initial render on load with all cats
-render(cats);
+
+const mapFunc = ({
+    name,
+    year,
+    url,
+    type,
+}) => ({
+    appelation: name + 7,
+    bornOn: year,
+    website: url,
+    category: type
+});
+
+
+const coolInitalCats = cats.map(mapFunc);
+
+render(coolInitalCats);
 
 // put render functionality into function as
 // we want to call repetitively when list is filtered

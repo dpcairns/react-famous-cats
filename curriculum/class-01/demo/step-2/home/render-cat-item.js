@@ -1,5 +1,8 @@
 
 export default function renderCatItem(cat) {
+    if (!cat) {
+        throw new Error('you need to supply a cat');
+    }
     const html = /*html*/`
         <li>
             <div class="info-container">

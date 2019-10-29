@@ -1,4 +1,4 @@
-import renderCatItem from '../home/render-cat-item.js';
+import CatItem from '../home/CatItem.js';
 const test = QUnit.test;
 
 QUnit.module('Render Cat Item');
@@ -13,21 +13,24 @@ test('renders html from data', assert => {
     };
 
     const expected = /*html*/`
-        <li>
+        <li class="cat-item">
             <div class="info-container">
                 <h2>Felix</h2>
                 <p class="cat-type">Tuxedo</p>
             </div>
+
             <div class="image-container">
-                            <img src="assets/cats/felix.png" alt="Felix image">
+                <img src="assets/cats/felix.png" alt="Felix image">
             </div>
             <p class="year">1892</p>
         </li>
     `;
 
     // act
-    const html = renderCatItem(cat);
-
+    const props = { cat: cat };
+    const catItem = new CatItem(props);
+    const html = catItem.renderHTML();
+    
     // assert
     assert.htmlEqual(html, expected);
 });
