@@ -1,6 +1,6 @@
 import cats from '../data/cats.js';
 import htmlToDOM from '../util/html-to-DOM.js';
-import renderCatItem from './render-cat-item.js';
+import generateCatItemHtmlString from './render-cat-item.js';
 
 const list = document.querySelector('.cats');
 const catTypeFilter = document.querySelector('.cat-type-filter');
@@ -68,7 +68,7 @@ function render(catsToRender) {
 
     // render new list items
     catsToRender.forEach(cat => {
-        const html = renderCatItem(cat);
+        const html = generateCatItemHtmlString(cat);
         const dom = htmlToDOM(html);
         list.appendChild(dom);
     });

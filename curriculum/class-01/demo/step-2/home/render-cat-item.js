@@ -1,5 +1,5 @@
 
-export default function renderCatItem(cat) {
+export default function generateCatItemHtmlString(cat) {
     if (!cat) {
         throw new Error('you need to supply a cat');
     }

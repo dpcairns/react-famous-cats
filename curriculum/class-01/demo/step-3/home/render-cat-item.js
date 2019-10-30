@@ -1,5 +1,5 @@
 
-export default function renderCatItem(cat) {
+export default function generateCatItemHtmlString(cat) {
     const html = /*html*/`
         <li>
             <div class="info-container">

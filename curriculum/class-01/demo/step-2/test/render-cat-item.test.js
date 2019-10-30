@@ -1,4 +1,4 @@
-import renderCatItem from '../home/render-cat-item.js';
+import generateCatItemHtmlString from '../home/render-cat-item.js';
 const test = QUnit.test;
 
 QUnit.module('Render Cat Item');
@@ -26,7 +26,7 @@ test('renders html from data', assert => {
     `;
 
     // act
-    const html = renderCatItem(cat);
+    const html = generateCatItemHtmlString(cat);
 
     // assert
     assert.htmlEqual(html, expected);

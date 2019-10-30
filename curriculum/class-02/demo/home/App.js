@@ -7,7 +7,10 @@ import cats from '../data/cats.js';
 class App extends Component {
 
     onRender(dom) {
-        const header = new Header();
+        const header = new Header({
+            person: 'caleb',
+            sayHello: (name) => { console.log(`Hello, ${name}`); }
+        });
         const headerDOM = header.renderDOM();
         dom.prepend(headerDOM);
 
@@ -21,8 +24,8 @@ class App extends Component {
         const listSection = dom.querySelector('.list-section');
         listSection.appendChild(catListDOM);
 
-        
-        const filterCatsProps = {
+
+        const filterCats = new FilterCats({
             cats: cats,
             onFilter: (catType) => {
                 let filteredCats;
@@ -38,12 +41,13 @@ class App extends Component {
                 const updateProps = { cats: filteredCats };
                 catList.update(updateProps);
             }
-        };
-        const filterCats = new FilterCats(filterCatsProps);
+        });
+
         const filterCatsDOM = filterCats.renderDOM();
 
         const optionsSection = dom.querySelector('.options-section');
         optionsSection.appendChild(filterCatsDOM);
+
     }
 
     renderHTML() {

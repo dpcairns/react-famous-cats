@@ -2,7 +2,13 @@ import Component from '../Component.js';
 import CatItem from './CatItem.js';
 
 class CatList extends Component {
-    
+
+    renderHTML() {
+        return /*html*/`
+            <ul class="cats"></ul>
+        `;
+    }
+
     onRender(dom) {
         const cats = this.props.cats;
 
@@ -12,12 +18,6 @@ class CatList extends Component {
             const catItemDOM = catItem.renderDOM();
             dom.appendChild(catItemDOM);
         });
-    }
-
-    renderHTML() {
-        return /*html*/`
-            <ul class="cats"></ul>
-        `;
     }
 }
 

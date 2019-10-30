@@ -1,4 +1,4 @@
-export default function renderCatItem() {
+export default function generateCatItemHtmlString() {
     const html = /*html*/`
         <li>
             <div class="info-container">

@@ -4,7 +4,7 @@ class FilterCats extends Component {
 
     onRender(select) {
         const onFilter = this.props.onFilter;
-        
+
         select.addEventListener('input', () => {
             onFilter(select.value);
         });
