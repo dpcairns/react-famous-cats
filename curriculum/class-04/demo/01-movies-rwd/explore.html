@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMDb API</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="explore.css">
+</head>
+
+<body>
+    <header>
+        <section>
+            <img src="assets/alchemy-logo.png" alt="Alchemy Code Lab Logo">
+            <h1>Explore the OMDb</h1>
+        </section>
+        <nav>
+            <a href="./">Home</a>
+            <a href="explore.html">Explore</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="options-section">
+            <form class="search">
+                <p>Search For:</p>
+                <input name="search">
+                <button>🔍</button>
+            </form>
+
+            <fieldset class="type">
+                <label>
+                    <input type="radio" name="type" value="movies" checked>
+                    Movies
+                </label>
+                <label>
+                    <input type="radio" name="type" value="series">
+                    Series
+                </label>
+                <label>
+                    <input type="radio" name="type" value="episode">
+                    Episode
+                </label>
+            </fieldset>
+
+
+        </section>
+
+        <section class="list-section">
+            <p class="paging">
+                <button class="prev" disabled>◀</button>
+                <span>Page 1 of 5</span>
+                <button class="next">▶</button>
+            </p>
+
+            <ul class="movies">
+                <li class="movie-item">
+                    <h2>
+                        <a href="https://www.imdb.com/title/tt1201607" target="_blank">
+                            Harry Potter and the Deathly Hallows: Part 2
+                        </a>
+                    </h2>
+                    <img 
+                        src="https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg"
+                        alt="Harry Potter and the Deathly Hallows: Part 2 movie poster"
+                    >
+                    <time>2011</time>
+                </li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+                <li class="movie-item"></li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>

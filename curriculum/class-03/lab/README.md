@@ -3,7 +3,7 @@ LAB 03: Design Pokedex
 
 Multi-day lab to build a searchable, pageable, sortable pokemon viewer that calls a real API!
 
-The API is available here: https://alchemy-pokedex.herokuapp.com/.
+The API is available here: https://alchemy-pokedex.herokuapp.com.
 
 **You will need to view the data to figure out what to display!**
 
