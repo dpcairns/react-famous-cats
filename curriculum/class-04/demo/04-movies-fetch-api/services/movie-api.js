@@ -1,7 +1,8 @@
 
-const URL = 'https://www.omdbapi.com/?apikey=3db77742&s=harry+potter';
+const URL = 'https://alchemy-pokedex.herokuapp.com/api/pokedex';
 
-export async function getMovies() {  
+export async function getMovies() {
     const response = await fetch(URL);
+
     return await response.json();
 }

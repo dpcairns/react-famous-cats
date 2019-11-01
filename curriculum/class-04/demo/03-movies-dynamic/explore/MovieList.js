@@ -2,7 +2,7 @@ import Component from '../Component.js';
 import MovieItem from './MovieItem.js';
 
 class MovieList extends Component {
-    
+
     onRender(dom) {
         const movies = this.props.movies;
 
@@ -16,7 +16,7 @@ class MovieList extends Component {
     }
 
     renderHTML() {
-        
+
         return /*html*/`
             <ul class="movies"></ul>
         `;

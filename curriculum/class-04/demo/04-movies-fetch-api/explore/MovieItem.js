@@ -7,15 +7,15 @@ class MovieItem extends Component {
         return /*html*/`
             <li class="movie-item">
                 <h2>
-                    <a href="https://www.imdb.com/title/${movie.imdbID}" target="_blank">
-                        ${movie.Title}
+                    <a href=${movie.pokedex}>
+                        ${movie.ability_1}
                     </a>
                 </h2>
                 <img 
-                    src="${movie.Poster}"
-                    alt="${movie.Title} movie poster"
+                    src="${movie.url_image}"
+                    alt="${movie.pokebase} movie poster"
                 >
-                <time>${movie.Year}</time>
+                <time>${movie.shape}</time>
             </li>
         `;
     }

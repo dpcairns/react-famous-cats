@@ -5,27 +5,36 @@ import Paging from './Paging.js';
 import MovieList from './MovieList.js';
 import { getMovies } from '../services/movie-api.js';
 
-class ExploreApp extends Component {
+class HomeApp extends Component {
 
-    async onRender(dom) {
+    onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
         const optionsSection = dom.querySelector('.options-section');
         const searchOptions = new SearchOptions();
         optionsSection.prepend(searchOptions.renderDOM());
-
+        
         const listSection = dom.querySelector('.list-section');
-        const paging = new Paging();
+        const paging = new Paging({ totalResults: 0 });
         listSection.appendChild(paging.renderDOM());
 
         const movieList = new MovieList({ movies: [] });
         listSection.appendChild(movieList.renderDOM());
 
-        const movies = await getMovies();
-        const results = movies.results;
+        async function loadMovies() {
+            const response = await getMovies();
+            const movies = response.Search;
+            const totalResults = response.totalResults;
+            movieList.update({ movies: movies });
+            paging.update({ totalResults: totalResults });
+        }
 
-        movieList.update({ movies: results });
+        loadMovies();
+
+        window.addEventListener('hashchange', () => {
+            loadMovies();
+        });
     }
 
     renderHTML() {
@@ -51,4 +60,4 @@ class ExploreApp extends Component {
     }
 }
 
-export default ExploreApp;
+export default HomeApp;

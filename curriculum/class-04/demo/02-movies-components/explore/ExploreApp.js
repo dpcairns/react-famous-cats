@@ -4,17 +4,17 @@ import SearchOptions from './SearchOptions.js';
 import Paging from './Paging.js';
 import MovieList from './MovieList.js';
 
-class HomeApp extends Component {
+class ExploreApp extends Component {
 
-    onRender(dom) {
+    onRender(el) {
         const header = new Header();
-        dom.prepend(header.renderDOM());
+        el.prepend(header.renderDOM());
 
-        const optionsSection = dom.querySelector('.options-section');
+        const optionsSection = el.querySelector('.options-section');
         const searchOptions = new SearchOptions();
         optionsSection.prepend(searchOptions.renderDOM());
-        
-        const listSection = dom.querySelector('.list-section');
+
+        const listSection = el.querySelector('.list-section');
         const paging = new Paging();
         listSection.appendChild(paging.renderDOM());
 
@@ -46,4 +46,4 @@ class HomeApp extends Component {
     }
 }
 
-export default HomeApp;
+export default ExploreApp;
