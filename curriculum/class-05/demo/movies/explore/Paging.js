@@ -1,5 +1,4 @@
 import Component from '../Component.js';
-
 class Paging extends Component {
 
     onRender(dom) {
@@ -44,7 +43,7 @@ class Paging extends Component {
         prevButton.addEventListener('click', () => {
             updatePage(-1);
         });
-        
+
         nextButton.addEventListener('click', () => {
             updatePage(1);
         });

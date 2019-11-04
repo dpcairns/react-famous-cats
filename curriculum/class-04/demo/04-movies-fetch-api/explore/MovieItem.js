@@ -2,20 +2,27 @@ import Component from '../Component.js';
 
 class MovieItem extends Component {
     renderHTML() {
-        const movie = this.props.movie;
+        const { movie: {
+            pokedex,
+            ability_1,
+            url_image,
+            pokebase,
+            shape,
+        },
+        } = this.props;
 
         return /*html*/`
             <li class="movie-item">
                 <h2>
-                    <a href=${movie.pokedex}>
-                        ${movie.ability_1}
+                    <a href=${pokedex}>
+                        ${ability_1}
                     </a>
                 </h2>
                 <img 
-                    src="${movie.url_image}"
-                    alt="${movie.pokebase} movie poster"
+                    src="${url_image}"
+                    alt="${pokebase} movie poster"
                 >
-                <time>${movie.shape}</time>
+                <time>${shape}</time>
             </li>
         `;
     }

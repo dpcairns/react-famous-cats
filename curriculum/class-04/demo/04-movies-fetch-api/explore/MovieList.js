@@ -3,13 +3,13 @@ import MovieItem from './MovieItem.js';
 
 class MovieList extends Component {
 
-    onRender(dom) {
-        const movies = this.props.movies;
+    onRender(el) {
+        const { movies } = this.props;
 
         movies.forEach(movie => {
-            const movieItem = new MovieItem({ movie: movie });
+            const movieItem = new MovieItem({ movie });
             const movieItemDOM = movieItem.renderDOM();
-            dom.appendChild(movieItemDOM);
+            el.appendChild(movieItemDOM);
         });
 
     }
@@ -17,7 +17,8 @@ class MovieList extends Component {
     renderHTML() {
 
         return /*html*/`
-            <ul class="movies"></ul>
+            <ul class="movies">
+            </ul>
         `;
     }
 }

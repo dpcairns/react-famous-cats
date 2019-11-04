@@ -23,7 +23,7 @@ class HomeApp extends Component {
         const optionsSection = dom.querySelector('.options-section');
         const searchOptions = new SearchOptions();
         optionsSection.prepend(searchOptions.renderDOM());
-        
+
         const listSection = dom.querySelector('.list-section');
         const paging = new Paging();
         listSection.appendChild(paging.renderDOM());
