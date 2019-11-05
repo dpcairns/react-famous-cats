@@ -2,9 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.static('./public'));
+
+app.use('*', (request, response) => {
+    response.send('Sorry, that route does not exist.');
+});
 
 app.get('/hello', (request, response) => {
     response.status(200).send('Hello');
@@ -17,10 +21,6 @@ app.get('/data', (request, response) => {
         pilot: 'Well Trained'
     };
     response.status(200).json(airplanes);
-});
-
-app.use('*', (request, response) => {
-    response.send('Sorry, that route does not exist.');
 });
 
 app.listen(PORT, () => {
