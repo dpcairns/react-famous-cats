@@ -25,5 +25,12 @@ https://www.hikingproject.com/data/get-trails?lat={lat}&lon={lng}&maxDistance=20
 
 https://www.eventbriteapi.com/v3/events/search?token={api-key}&location.latitude={lat}&location.longitude={lng}
 
+## Points Break Down
 
-
+Looking For | Points (10)
+:--|--:
+Working location endpoint | 4
+Working weather endpoint | 2
+Working yelp endpoint | 2
+Working trails endpoint | 2
+Working events endpoint | +2 (STRETCH)
