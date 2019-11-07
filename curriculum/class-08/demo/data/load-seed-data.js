@@ -11,7 +11,7 @@ async function run() {
 
     try {
         await client.connect();
-    
+
         // "Promise all" does a parallel execution of async tasks
         await Promise.all(
             // for every cat data, we want a promise to insert into the db
@@ -23,11 +23,12 @@ async function run() {
                     INSERT INTO cats (name, type, url, year, lives, is_sidekick)
                     VALUES ($1, $2, $3, $4, $5, $6);
                 `,
-                // Second argument is an array of values for each parameter in the query:
-                [cat.name, cat.type, cat.url, cat.year, cat.lives, cat.isSidekick]);
+                    // Second argument is an array of values for each parameter in the query:
+                    [cat.name, cat.type, cat.url, cat.year, cat.lives, cat.isSidekick]);
 
             })
         );
+
 
         console.log('seed data load complete');
     }
@@ -37,5 +38,5 @@ async function run() {
     finally {
         client.end();
     }
-    
+
 }
