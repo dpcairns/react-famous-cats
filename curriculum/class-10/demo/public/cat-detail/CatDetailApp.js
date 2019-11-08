@@ -14,7 +14,7 @@ class CatDetailApp extends Component {
 
         const loading = new Loading({ loading: true });
         main.appendChild(loading.renderDOM());
-        
+
         // extracting query param for id of cat to get
         const searchParams = new URLSearchParams(window.location.search);
         const id = searchParams.get('id');
@@ -27,7 +27,7 @@ class CatDetailApp extends Component {
 
         try {
             const cat = await getCat(id);
-            const catDetail = new CatDetail({ cat: cat });
+            const catDetail = new CatDetail({ cat });
             main.appendChild(catDetail.renderDOM());
         }
         catch (err) {

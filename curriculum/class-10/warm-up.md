@@ -5,34 +5,39 @@ Read through this code as if you are the interpreter. Find all of the mistakes i
 
 ```js
 const express = require('express');
+const app = express();
+const pg = require('pg');
 
-const app = app();
+const Client = pg.client
 
-app.post(('/') => (request, response) {
-  let SQL = 'Insert into users values $0, $1, $2';
+const client = new Client(SOMEURL)
+// middlewares
+app.use(express.json());
 
-  let values = {id, request.username, request.password};
+app.post('/', (request, response) => {
+  const SQL =  `INSERT INTO users (username, password, age)
+    VALUES ($1, $2, $3)
+    RETURNING *;`;
+
+  const values = [request.body.username, request.body.password, request.body.age];
   
-  client.query(SQL)
-    .then({
-      response.send(result.rowsCount);
+  client.query(SQL, values)
+    .then((whatever) => {
+      response.json(whatever.rowsCount);
     })
 })
-
-app.listen(PORT, () {
-  console.log('Listening on ${PORT}')}
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`)}
 );
 ```
-
 ## schema.sql
-
 ```sql
-DROP TABLE IF NOT EXISTS users
+DROP TABLE IF EXISTS users
 
-CREATE TABLE users() {
-  id SERIAL KEY;
-  username VARCHAR;
-  password VARCHAR;
-  age NUM;
+CREATE TABLE users {
+  id SERIAL PRIMARY KEY NOT NULL,
+  username VARCHAR(256) NOT NULL,
+  password VARCHAR(256) NOT NULL,
+  age INTEGER NOT NULL
 }
 ```

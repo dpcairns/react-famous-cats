@@ -9,6 +9,11 @@ When getting an individual resource, we need to specify the id to get. Express o
 app.get('/api/cats/:id', async (req, res) => {
     const id = req.params.id;
 
+    const query = generateQuery(id)
+
+    const results = client.query(query)
+
+    res.status(200).json(results)
     // rest of route...
 });
 ```
@@ -20,12 +25,12 @@ Return a subset of rows using a `WHERE` clause:
 ```js
 const result = await client.query(`
     SELECT
-            c.*,
-            t.name as type
-    FROM  cats c
-    JOIN  types t
-    ON    c.type_id = t.id
-    WHERE c.id = $1
+            cats.*,
+            types.name as type
+    FROM  cats 
+    JOIN  types
+    ON    cats.type_id = types.id
+    WHERE cats.id = 4
 `,
 [id]);
 ```
