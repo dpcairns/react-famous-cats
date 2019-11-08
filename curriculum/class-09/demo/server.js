@@ -56,7 +56,7 @@ app.post('/api/cats', async (req, res) => {
             VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
         `,
-        [cat.name, cat.typeId, cat.url, cat.year, cat.lives, cat.isSidekick]
+            [cat.name, cat.typeId, cat.url, cat.year, cat.lives, cat.isSidekick]
         );
 
         res.json(result.rows[0]);
@@ -77,7 +77,7 @@ app.get('/api/types', async (req, res) => {
             FROM types
             ORDER BY name;
         `);
-        
+
         res.json(result.rows);
     }
     catch (err) {
@@ -85,7 +85,7 @@ app.get('/api/types', async (req, res) => {
         res.status(500).json({
             error: err.message || err
         });
-    }  
+    }
 });
 
 // Start the server

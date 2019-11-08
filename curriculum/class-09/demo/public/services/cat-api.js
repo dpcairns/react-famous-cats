@@ -1,6 +1,6 @@
 const URL = '/api';
 
-export async function getCats() {  
+export async function getCats() {
     const url = `${URL}/cats`;
 
     const response = await fetch(url);
@@ -10,7 +10,7 @@ export async function getCats() {
 
 export async function getTypes() {
     const url = `${URL}/types`;
-    
+
     const response = await fetch(url);
     const data = await response.json();
     return data;
@@ -18,7 +18,7 @@ export async function getTypes() {
 
 export async function addCat(cat) {
     const url = `${URL}/cats`;
-    
+
     const response = await fetch(url, {
         method: 'POST',
         headers: {

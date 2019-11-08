@@ -44,61 +44,62 @@ class CatForm extends Component {
     renderHTML() {
         const types = this.props.types;
         const optionsList = types.map(type => {
-            return /*html*/`
-                <option value="${type.id}">${type.name}</option>
-            `;
+            return `<option value="${type.id}">${type.name}</option>`;
         });
 
+        const joinedOptionsList = optionsList.join('');
+
+        console.log(joinedOptionsList);
         return /*html*/`
-            <form class="cat-form">
-                <p>
-                    <label for="name">Name</label>
-                    <input id="name" name="name" required placeholder="Famous Cat">
+                < form class="cat-form" >
+                    <p>
+                        <label for="name">Name</label>
+                        <input id="name" name="name" required placeholder="Famous Cat">
                 </p>
 
-                <p>
-                    <label for="type">Type</label>
-                    <select id="type" name="type-id" required>
-                        <option disabled selected>&lt;select a type&gt;</option>
-                        ${optionsList.join('')}
-                    </select>
-                </p>
-                
-                <p>
-                    <label for="url">Image Url</label>
-                    <input id="url" name="url" required placeholder="http://famous-cat.png">
+                        <p>
+                            <label for="type">Type</label>
+                            <select id="type" name="type-id" required>
+                                <option disabled selected>&lt;select a type&gt;</option>
+                                ${joinedOptionsList}
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="url">Image Url</label>
+                            <input id="url" name="url" required placeholder="http://famous-cat.png">
                 </p>
 
-                <p>
-                    <label for="year">Year Introduced</label>
-                    <input id="year" 
-                        name="year" 
-                        required 
-                        pattern="[0-9]{4}" 
-                        placeholder="2005" 
-                        title="Four digit year">
+                            <p>
+                                <label for="year">Year Introduced</label>
+                                <input id="year"
+                                    name="year"
+                                    required
+                                    pattern="[0-9]{4}"
+                                    placeholder="2005"
+                                    title="Four digit year">
                 </p>
 
-                <p>
-                    <label for="lives">Lives Remaining</label>
-                    <span class="horizontally-centered">
-                        <input id="lives" name="lives" type="range" min="0" max="9" value="9">
-                        <span id="lives-display">5</span>
+                                <p>
+                                    <label for="lives">Lives Remaining</label>
+                                    <span class="horizontally-centered">
+                                        <input id="lives" name="lives" type="range" min="0" max="9" value="9">
+                                            <span id="lives-display">5</span>
                     </span>
                 </p>
 
-                <fieldset for="is-sidekick">
-                    <legend>Is a Sidekick?</legend>
-                    <label class="horizontally-centered">
-                        <input id="is-sidekick" name="is-sidekick" type="checkbox"> Yes
+                                    <fieldset for="is-sidekick">
+                                        <legend>Is a Sidekick?</legend>
+                                        <label class="horizontally-centered">
+                                            <input id="is-sidekick" name="is-sidekick" type="checkbox"> Yes
                     </label>
                 </fieldset>
 
-                <p>
-                    <button>Add This Cat</button>
-                </p>
+                                        <p>
+                                            <button>Add This Cat</button>
+                                        </p>
             </form>
-        `;
+                                    `;
     }
 }
 
