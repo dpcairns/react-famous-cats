@@ -12,14 +12,14 @@ class CatListApp extends Component {
 
         const loading = new Loading({ loading: true });
         dom.appendChild(loading.renderDOM());
-
+        
         const main = dom.querySelector('main');
         const list = new CatList({ cats: [] });
         main.appendChild(list.renderDOM());
 
         try {
             const cats = await getCats();
-            list.update({ cats });
+            list.update({ cats: cats });
         }
         catch (err) {
             console.log('Load cats failed\n', err);
@@ -28,7 +28,9 @@ class CatListApp extends Component {
             // With quick response times, we can't see our loader
             // and it is so cool that we want it to be visible
             // awhile longer. :)
-            loading.update({ loading: false });
+            setTimeout(() => {
+                loading.update({ loading: false });
+            }, 500);
         }
     }
 

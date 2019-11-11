@@ -2,11 +2,11 @@ import Component from '../Component.js';
 
 class Loading extends Component {
     renderHTML() {
-        const { loading } = this.props;
+        const loading = this.props.loading;
         if (!loading) {
-            return /*html*/`<div id="findout"></div>`;
+            return /*html*/`<div></div>`;
         }
-
+        
         return /*html*/`
             <div class="loading-container">
                 <img src="assets/loading.gif">
