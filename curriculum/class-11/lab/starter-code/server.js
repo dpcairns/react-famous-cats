@@ -16,7 +16,7 @@ app.use(morgan('dev')); // http logging
 app.use(cors()); // enable CORS request
 app.use(express.static('public')); // server files from /public folder
 app.use(express.json()); // enable reading incoming json data
-
+app.use(auth());
 // API Routes
 
 // *** TODOS ***
@@ -45,7 +45,7 @@ app.post('/api/todos', async (req, res) => {
         const result = await client.query(`
             
         `,
-        [/* pass in data */]);
+            [/* pass in data */]);
 
         res.json(result.rows[0]);
     }
@@ -65,7 +65,7 @@ app.put('/api/todos/:id', async (req, res) => {
         const result = await client.query(`
             
         `, [/* pass in data */]);
-     
+
         res.json(result.rows[0]);
     }
     catch (err) {
@@ -84,7 +84,7 @@ app.delete('/api/todos/:id', async (req, res) => {
         const result = await client.query(`
          
         `, [/* pass data */]);
-        
+
         res.json(result.rows[0]);
     }
     catch (err) {

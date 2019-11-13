@@ -9,6 +9,31 @@ const client = require('./lib/client');
 // Initiate database connection
 client.connect();
 
+// Auth
+const ensureAuth = require('./lib/auth/ensure-auth');
+const createAuthRoutes = require('./lib/auth/create-auth-routes');
+const authRoutes = createAuthRoutes({
+    selectUser(email) {
+        return client.query(`
+            SELECT id, email, hash, display_name as "displayName" 
+            FROM users
+            WHERE email = $1;
+        `,
+        [email]
+        ).then(result => result.rows[0]);
+    },
+    insertUser(user, hash) {
+        console.log(user);
+        return client.query(`
+            INSERT into users (email, hash, display_name)
+            VALUES ($1, $2, $3)
+            RETURNING id, email, display_name as "displayName";
+        `,
+        [user.email, hash, user.displayName]
+        ).then(result => result.rows[0]);
+    }
+});
+
 // Application Setup
 const app = express();
 const PORT = process.env.PORT;
@@ -17,7 +42,23 @@ app.use(cors()); // enable CORS request
 app.use(express.static('public')); // server files from /public folder
 app.use(express.json()); // enable reading incoming json data
 
+// setup authentication routes
+app.use('/api/auth', authRoutes);
+
+// everything that starts with "/api" below here requires an auth token!
+app.use('/api', ensureAuth);
+
 // API Routes
+
+// The lab has you access the user's id on
+// each of the routes to do the operation in 
+// the context of the user. This is an example
+// of how to access the user's id:
+app.get('/api/test', (req, res) => {
+    res.json({
+        message: `the user's id is ${req.userId}`
+    });
+});
 
 // *** CATS ***
 app.get('/api/cats', async (req, res) => {
@@ -61,7 +102,7 @@ app.get('/api/cats/:id', async (req, res) => {
             ON    c.type_id = t.id
             WHERE c.id = $1
         `,
-            [id]);
+        [id]);
 
         const cat = result.rows[0];
         if (!cat) {
@@ -92,7 +133,7 @@ app.post('/api/cats', async (req, res) => {
             VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
         `,
-            [cat.name, cat.typeId, cat.url, cat.year, cat.lives, cat.isSidekick]
+        [cat.name, cat.typeId, cat.url, cat.year, cat.lives, cat.isSidekick]
         );
 
         res.json(result.rows[0]);
@@ -105,9 +146,9 @@ app.post('/api/cats', async (req, res) => {
     }
 });
 
+// *** TYPES ***
 app.get('/api/types', async (req, res) => {
     const showAll = (req.query.show && req.query.show.toLowerCase() === 'all');
-
     const where = showAll ? '' : 'WHERE inactive = FALSE';
 
     try {
@@ -117,7 +158,7 @@ app.get('/api/types', async (req, res) => {
             ${where}
             ORDER BY name;
         `);
-
+        
         res.json(result.rows);
     }
     catch (err) {
@@ -125,7 +166,7 @@ app.get('/api/types', async (req, res) => {
         res.status(500).json({
             error: err.message || err
         });
-    }
+    }  
 });
 
 app.post('/api/types', async (req, res) => {
@@ -137,8 +178,8 @@ app.post('/api/types', async (req, res) => {
             VALUES ($1)
             RETURNING *;
         `,
-            [type.name]);
-
+        [type.name]);
+        
         res.json(result.rows[0]);
     }
     catch (err) {
@@ -168,7 +209,7 @@ app.put('/api/types/:id', async (req, res) => {
             WHERE  id = $1
             RETURNING *;
         `, [id, type.name, type.inactive]);
-
+     
         res.json(result.rows[0]);
     }
     catch (err) {
@@ -194,7 +235,7 @@ app.delete('/api/types/:id', async (req, res) => {
             WHERE  id = $1
             RETURNING *;
         `, [id]);
-
+        
         res.json(result.rows[0]);
     }
     catch (err) {
@@ -208,7 +249,7 @@ app.delete('/api/types/:id', async (req, res) => {
                 error: err.message || err
             });
         }
-    }
+    } 
 });
 
 // Start the server

@@ -6,10 +6,11 @@ import CatTypeList from './CatTypeList.js';
 import { getTypes, addType, updateType, removeType } from '../services/cat-api.js';
 
 class CatTypesApp extends Component {
+
     async onRender(dom) {
         const header = new Header({ title: 'Cat Types' });
         dom.prepend(header.renderDOM());
-
+        
         const main = dom.querySelector('main');
         const error = dom.querySelector('.error')
 
@@ -18,21 +19,21 @@ class CatTypesApp extends Component {
         dom.appendChild(loading.renderDOM());
 
         const typeForm = new TypeForm({
-            onAdd: async (type = { name: ' ' }) => {
+            onAdd: async type => {
                 loading.update({ loading: true });
                 // clear prior error
                 error.textContent = '';
 
                 try {
                     // part 1: do work on the server
-                    const newTodo = await addTodo(todo);
-
+                    const saved = await addType(type);
+                    
                     // part 2: integrate back into our list
-                    // this.state is a representation of what we assume our DB looks like--except we don't have to make another API call
-                    this.state.todos.push(newTodo);
+                    const types = this.state.types;
+                    types.push(saved);
 
                     // part 3: tell component to update
-                    typeList.update({ types: this.state.types });
+                    typeList.update({ types });
                 }
                 catch (err) {
                     // display error
@@ -47,7 +48,7 @@ class CatTypesApp extends Component {
         });
         main.appendChild(typeForm.renderDOM());
 
-        const typeList = new CatTypeList({
+        const typeList = new CatTypeList({ 
             types: [],
             onUpdate: async type => {
                 loading.update({ loading: true });
@@ -57,7 +58,7 @@ class CatTypesApp extends Component {
                 try {
                     // part 1: do work on the server
                     const updated = await updateType(type);
-
+                    
                     // part 2: integrate back into our list
                     const types = this.state.types;
                     // find the index of this type:
@@ -84,15 +85,16 @@ class CatTypesApp extends Component {
                 try {
                     // part 1: do work on the server
                     await removeType(type.id);
-
+                    
                     // part 2: integrate back into our list
+                    const types = this.state.types;        
                     // find the index of this type:
-                    const index = this.state.types.indexOf(type);
+                    const index = types.indexOf(type);
                     // remove from the list
-                    this.state.types.splice(index, 1);
-
+                    types.splice(index, 1);
+    
                     // part 3: tell component to update
-                    typeList.update({ types: this.state.types });
+                    typeList.update({ types });
                 }
                 catch (err) {
                     // display error
@@ -111,7 +113,7 @@ class CatTypesApp extends Component {
             // store on "this.state" so we can get 
             // them back for add, remove, and update:
             this.state.types = types;
-
+    
             // pass the loaded types to the component:
             typeList.update({ types });
         }

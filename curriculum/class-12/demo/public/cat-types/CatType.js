@@ -12,11 +12,11 @@ class CatType extends Component {
             type.inactive = !type.inactive;
             onUpdate(type);
         });
-
+        
         const removeButton = dom.querySelector('.remove-button');
         removeButton.addEventListener('click', () => {
-            const theyClickedOkay = confirm(`Are you sure you want to remove "${type.name}"?`);
-            if (theyClickedOkay) {
+            const confirmed = confirm(`Are you sure you want to remove "${type.name}"?`);
+            if (confirmed) {
                 onRemove(type);
             }
         });
