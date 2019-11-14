@@ -54,9 +54,7 @@ app.get('/api/quotes', async (req, res) => {
         const query = req.query;
 
         // get the data from the third party API
-        const getQuotes = quotesApi.get;
-
-        const quotes = await getQuotes(query.search, query.page);
+        const quotes = await quotesApi.get(query.search, query.page);
 
         // This part is coded after initial functionality is complete...
 
@@ -64,21 +62,22 @@ app.get('/api/quotes', async (req, res) => {
         // Make an array of ids
         const ids = quotes.map(quote => quote.id);
         // Select these ids from the favorites table, for _this user_
-
-        /**
-         * we have:
-         *  1) API call: list of raw quotes
-         *  2) SQL query: list of these same raw quotes, but only the ones that are favorites for this user
-         */
-        const quotesThatHappenToBeUserFavorites = await client.query(`
+        const result = await client.query(`
             SELECT id
             FROM   favorites
             WHERE  user_id = $1
             AND    id = ANY($2)
         `, [req.userId, ids]);
 
+        // make a lookup of all favorite ids:
+
+        const lookup = result.rows.reduce((acc, quote) => {
+            acc[quote.id] = true;
+            return acc;
+        }, {});
+
         // adjust the favorite property of each item:
-        quotes.forEach(quote => quote.isFavorite = quotesThatHappenToBeUserFavorites.map(quote => quote.id).includes(quote.id) || false);
+        quotes.forEach(quote => quote.isFavorite = lookup[quote.id] || false);
 
         // Ship it!
         res.json(quotes);

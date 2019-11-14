@@ -75,3 +75,21 @@ public class Locate {
     }
 }
 ```
+
+
+```
+Stretch:
+
+I have many 'quotes'.
+I have several 'favorites'.
+How do I set `star: true` on all the `quotes` that are also `favorites`?
+
+const quotes = [
+    { quote: 'cool', star: false },
+    { quote: 'wow', star: false },
+    { quote: 'huh', star: false },
+];
+const 
+    { quote: 'wow' },
+    { quote: 'crap!' },
+]```
