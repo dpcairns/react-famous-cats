@@ -2,7 +2,9 @@ const URL = '/api';
 
 const token = localStorage.getItem('TOKEN');
 // redirect if not on home page
-if (!token && !(location.pathname === '/' || location.pathname === '/index.html')) {
+const userIsOnHomePage = (location.pathname === '/' || location.pathname === '/index.html');
+
+if (!token && !userIsOnHomePage) {
     const searchParams = new URLSearchParams();
     searchParams.set('redirect', location.pathname);
     location = `/?${searchParams.toString()}`;
@@ -33,7 +35,7 @@ export function signUp(user) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user)        
+        body: JSON.stringify(user)
     });
 }
 
@@ -44,16 +46,16 @@ export function signIn(credentials) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(credentials)        
+        body: JSON.stringify(credentials)
     });
 }
 
-export function getCats() {  
+export function getCats() {
     const url = `${URL}/cats`;
     return fetchWithError(url);
 }
 
-export function getCat(id) {  
+export function getCat(id) {
     const url = `${URL}/cats/${id}`;
     return fetchWithError(url);
 }

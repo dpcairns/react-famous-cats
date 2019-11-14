@@ -19,7 +19,7 @@ const authRoutes = createAuthRoutes({
             FROM users
             WHERE email = $1;
         `,
-        [email]
+            [email]
         ).then(result => result.rows[0]);
     },
     insertUser(user, hash) {
@@ -29,7 +29,7 @@ const authRoutes = createAuthRoutes({
             VALUES ($1, $2, $3)
             RETURNING id, email, display_name as "displayName";
         `,
-        [user.email, hash, user.displayName]
+            [user.email, hash, user.displayName]
         ).then(result => result.rows[0]);
     }
 });
@@ -62,7 +62,6 @@ app.get('/api/test', (req, res) => {
 
 // *** CATS ***
 app.get('/api/cats', async (req, res) => {
-
     try {
         const result = await client.query(`
             SELECT
@@ -76,6 +75,7 @@ app.get('/api/cats', async (req, res) => {
             JOIN types t
             ON   c.type_id = t.id
             ORDER BY c.year;
+
         `);
 
         res.json(result.rows);
@@ -102,7 +102,7 @@ app.get('/api/cats/:id', async (req, res) => {
             ON    c.type_id = t.id
             WHERE c.id = $1
         `,
-        [id]);
+            [id]);
 
         const cat = result.rows[0];
         if (!cat) {
@@ -133,7 +133,7 @@ app.post('/api/cats', async (req, res) => {
             VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
         `,
-        [cat.name, cat.typeId, cat.url, cat.year, cat.lives, cat.isSidekick]
+            [cat.name, cat.typeId, cat.url, cat.year, cat.lives, cat.isSidekick]
         );
 
         res.json(result.rows[0]);
@@ -158,7 +158,7 @@ app.get('/api/types', async (req, res) => {
             ${where}
             ORDER BY name;
         `);
-        
+
         res.json(result.rows);
     }
     catch (err) {
@@ -166,7 +166,7 @@ app.get('/api/types', async (req, res) => {
         res.status(500).json({
             error: err.message || err
         });
-    }  
+    }
 });
 
 app.post('/api/types', async (req, res) => {
@@ -178,8 +178,8 @@ app.post('/api/types', async (req, res) => {
             VALUES ($1)
             RETURNING *;
         `,
-        [type.name]);
-        
+            [type.name]);
+
         res.json(result.rows[0]);
     }
     catch (err) {
@@ -209,7 +209,7 @@ app.put('/api/types/:id', async (req, res) => {
             WHERE  id = $1
             RETURNING *;
         `, [id, type.name, type.inactive]);
-     
+
         res.json(result.rows[0]);
     }
     catch (err) {
@@ -235,7 +235,7 @@ app.delete('/api/types/:id', async (req, res) => {
             WHERE  id = $1
             RETURNING *;
         `, [id]);
-        
+
         res.json(result.rows[0]);
     }
     catch (err) {
@@ -249,7 +249,7 @@ app.delete('/api/types/:id', async (req, res) => {
                 error: err.message || err
             });
         }
-    } 
+    }
 });
 
 // Start the server
