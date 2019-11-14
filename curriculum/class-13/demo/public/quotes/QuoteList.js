@@ -2,15 +2,17 @@ import Component from '../Component.js';
 import QuoteItem from './QuoteItem.js';
 
 class QuoteList extends Component {
-    
+
     onRender(dom) {
         const quotes = this.props.quotes;
 
         quotes.forEach(quote => {
-            const props = { 
+            const props = {
                 quote: quote,
                 removeUnFavorites: this.props.removeUnFavorites
             };
+
+            console.log(this.props.removeUnFavorites);
             const quoteItem = new QuoteItem(props);
             const quoteItemDOM = quoteItem.renderDOM();
             dom.appendChild(quoteItemDOM);
@@ -19,7 +21,7 @@ class QuoteList extends Component {
     }
 
     renderHTML() {
-        
+
         return /*html*/`
             <ul class="quotes"></ul>
         `;

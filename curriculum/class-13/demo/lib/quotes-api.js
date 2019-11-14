@@ -7,16 +7,16 @@ module.exports = {
     async get(search, page) {
         page = page || 1;
         search = search || '';
-    
+
         const response = await request
             .get(URL)
             .query({ page, search });
 
-        return response.body.map(transformQuote);
+        return response.body.map(generateIdForQuote);
     }
 };
 
-function transformQuote(quote) {
+function generateIdForQuote(quote) {
     quote.isFavorite = false;
     // This API does not give proper id's :(
     // So we make one based on hashing the quote

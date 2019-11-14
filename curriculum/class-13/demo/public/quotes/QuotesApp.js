@@ -18,18 +18,18 @@ class QuotesApp extends Component {
         optionsSection.appendChild(paging.renderDOM());
 
         const listSection = dom.querySelector('.list-section');
-        
-       
+
+
         const quoteList = new QuoteList({ quotes: [] });
         listSection.appendChild(quoteList.renderDOM());
-        
-        async function loadQuotes() {
+
+        const loadQuotes = async () => {
             try {
                 const quotes = await getQuotes();
-                    
+
                 quoteList.update({ quotes: quotes });
 
-                paging.update({ 
+                paging.update({
                     // This API does not give total results :(
                     // totalResult: ?
                 });
@@ -40,7 +40,6 @@ class QuotesApp extends Component {
         }
 
         loadQuotes();
-
         window.addEventListener('hashchange', () => {
             loadQuotes();
         });
@@ -51,7 +50,6 @@ class QuotesApp extends Component {
             <div>
                 <!-- header goes here -->
                 
-                <main>
                     <section class="options-section">
                         <!-- options go here -->
                     </section>

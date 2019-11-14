@@ -14,9 +14,9 @@ class QuoteItem extends Component {
             }
             else {
                 unFavorite(quote.id);
-                li.classList.add('fade');
                 setTimeout(() => {
                     if (removeUnFavorites) {
+                        li.classList.add('fade');
                         this.rootElement.remove();
                     }
                 }, 300);

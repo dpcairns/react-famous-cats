@@ -32,7 +32,7 @@ async function fetchWithError(url, options) {
     }
 }
 
-export function getQuotes() {  
+export function getQuotes() {
     const hashQuery = window.location.hash.slice(1);
     const url = `${BASE_URL}/quotes?${hashQuery}`;
     return fetchWithError(url);
@@ -40,7 +40,7 @@ export function getQuotes() {
 
 export function getFavorites() {
     const url = `${BASE_URL}/me/favorites`;
-    return fetchWithError(url);     
+    return fetchWithError(url);
 }
 
 export function makeFavorite(quote) {
@@ -50,15 +50,15 @@ export function makeFavorite(quote) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(quote)        
-    });  
+        body: JSON.stringify(quote)
+    });
 }
 
 export function unFavorite(quoteId) {
     const url = `${BASE_URL}/me/favorites/${quoteId}`;
     return fetchWithError(url, {
         method: 'DELETE',
-    });    
+    });
 }
 
 export function signUp(user) {
@@ -68,7 +68,7 @@ export function signUp(user) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user)        
+        body: JSON.stringify(user)
     });
 }
 
@@ -79,7 +79,7 @@ export function signIn(credentials) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(credentials)        
+        body: JSON.stringify(credentials)
     });
 }
 

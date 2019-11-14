@@ -10,10 +10,10 @@ class FindQuotesApp extends Component {
         dom.prepend(header.renderDOM());
 
         const listSection = dom.querySelector('.list-section');
-        
+
         const quoteList = new QuoteList({ quotes: [], removeUnFavorites: true });
         listSection.appendChild(quoteList.renderDOM());
-        
+
         getFavorites()
             .then(quotes => {
                 quoteList.update({ quotes: quotes });

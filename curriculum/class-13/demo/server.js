@@ -49,35 +49,37 @@ app.use('/api', ensureAuth);
 
 // *** API Routes ***
 app.get('/api/quotes', async (req, res) => {
-    
+
     try {
         const query = req.query;
 
         // get the data from the third party API
-        const quotes = await quotesApi.get(query.search, query.page);
+        const getQuotes = quotesApi.get;
+
+        const quotes = await getQuotes(query.search, query.page);
 
         // This part is coded after initial functionality is complete...
-        
+
         // Check if any of these are favorites:
         // Make an array of ids
         const ids = quotes.map(quote => quote.id);
         // Select these ids from the favorites table, for _this user_
-        const result = await client.query(`
+
+        /**
+         * we have:
+         *  1) API call: list of raw quotes
+         *  2) SQL query: list of these same raw quotes, but only the ones that are favorites for this user
+         */
+        const quotesThatHappenToBeUserFavorites = await client.query(`
             SELECT id
             FROM   favorites
             WHERE  user_id = $1
             AND    id = ANY($2)
         `, [req.userId, ids]);
 
-        // make a lookup of all favorite ids:
-        const lookup = result.rows.reduce((acc, quote) => {
-            acc[quote.id] = true;
-            return acc;
-        }, {});
-
         // adjust the favorite property of each item:
-        quotes.forEach(quote => quote.isFavorite = lookup[quote.id] || false);
-        
+        quotes.forEach(quote => quote.isFavorite = quotesThatHappenToBeUserFavorites.map(quote => quote.id).includes(quote.id) || false);
+
         // Ship it!
         res.json(quotes);
     }
@@ -102,7 +104,7 @@ app.get('/api/me/favorites', async (req, res) => {
             FROM   favorites
             WHERE user_id = $1;
         `, [req.userId]);
-            
+
         res.json(result.rows);
     }
     catch (err) {
@@ -119,20 +121,20 @@ app.post('/api/me/favorites', async (req, res) => {
     // Add a favorite _for the calling user_
     try {
         const quote = req.body;
-    
+
         const result = await client.query(`
             INSERT INTO favorites (id, quote, user_id, character, image)
             VALUES ($1, $2, $3, $4, $5)
             RETURNING quote as id, character, image, quote, user_id as "userId";
         `, [
             // this first value is a shortcoming of this API, no id
-            stringHash(quote.quote), 
-            quote.quote, 
-            req.userId, 
-            quote.character, 
+            stringHash(quote.quote),
+            quote.quote,
+            req.userId,
+            quote.character,
             quote.image
         ]);
-        
+
         res.json(result.rows[0]);
 
     }

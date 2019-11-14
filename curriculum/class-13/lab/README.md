@@ -24,10 +24,10 @@ method | url
 ---|---
 `POST` | `/api/auth/signup`
 `POST` | `/api/auth/signin`
-`GET` | `/api/{resources}?search={query}`
+`GET` | `/api/quotes?search={my}`
 `POST` | `/api/me/favorites`
 `DELETE` | `/api/me/favorites/:id`
-`GET` | `/api/me/favorites`
+`GET` | `/api/me/favorites` // req.userId
 
 ## Database
 
