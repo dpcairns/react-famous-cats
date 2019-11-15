@@ -39,5 +39,16 @@ method | url
         - any fields needed by list component
 
 
+## Points Break Down
+
+Looking For | Points (10)
+:--|--:
+Normalized DB, JOINS, and separate GET Routes | 4
+Resource form with populated drop-down | 4
+Create a new resource | 8
+Populated detail view | 4
+Edit/Delete resource | +5
+Dynamically create Types table off of seed data | +1
+
 
 

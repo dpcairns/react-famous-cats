@@ -58,20 +58,16 @@ app.get('/api/quotes', async (req, res) => {
 
         // This part is coded after initial functionality is complete...
 
-        // Check if any of these are favorites:
-        // Make an array of ids
-        const ids = quotes.map(quote => quote.id);
         // Select these ids from the favorites table, for _this user_
-        const result = await client.query(`
+        const favorites = await client.query(`
             SELECT id
             FROM   favorites
-            WHERE  user_id = $1
-            AND    id = ANY($2)
-        `, [req.userId, ids]);
+            WHERE  user_id = $1;
+        `, [req.userId]);
 
         // make a lookup of all favorite ids:
 
-        const lookup = result.rows.reduce((acc, quote) => {
+        const lookup = favorites.rows.reduce((acc, quote) => {
             acc[quote.id] = true;
             return acc;
         }, {});

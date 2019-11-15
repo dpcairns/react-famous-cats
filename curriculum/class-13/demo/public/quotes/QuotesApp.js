@@ -39,7 +39,7 @@ class QuotesApp extends Component {
             }
         }
 
-        loadQuotes();
+        loadQuotes(); x
         window.addEventListener('hashchange', () => {
             loadQuotes();
         });
