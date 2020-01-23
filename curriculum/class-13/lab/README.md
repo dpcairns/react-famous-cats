@@ -43,12 +43,9 @@ method | url
 
 Looking For | Points (10)
 :--|--:
-Normalized DB, JOINS, and separate GET Routes | 4
-Resource form with populated drop-down | 4
-Create a new resource | 8
-Populated detail view | 4
-Edit/Delete resource | +5
-Dynamically create Types table off of seed data | +1
-
+All six working enpoints | 4
+User Auth Page | 2
+Favorites Page | 2
+Search Page | 2
 
 

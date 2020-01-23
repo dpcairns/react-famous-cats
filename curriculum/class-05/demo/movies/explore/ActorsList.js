@@ -6,7 +6,7 @@ class ActorsList extends Component {
     }
 
     renderHTML() {
-        `<ul class="actors-list"></ul>`;
+        /*html */`<ul class="actors-list"></ul > `;
     }
 }
 
