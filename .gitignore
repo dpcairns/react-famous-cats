@@ -1,5 +1,7 @@
 NOTES.md
+.DS_Store
 .future
+node_modules
 sandbox
 bc2-code-challenges
 bc-summer-2019-demo
