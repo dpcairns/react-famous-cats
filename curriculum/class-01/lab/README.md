@@ -56,9 +56,11 @@ Build a ImageListItem component, and render each image in App.js as an instance 
 
 ## Points Break Down
 
-| Looking For                        | Points (10) |
-| :--------------------------------- | ----------: |
-| Wire Frame Design with Annotations |           3 |
-| Render list of data                |           4 |
-| Filter by keyword                  |          +3 |
-| Step-by-step commits               |           3 |
+| Looking For                                       | Points (10) |
+| :------------------------------------------------ | ----------: |
+| Wire Frame Design with Annotations                |           3 |
+| Render list of data                               |           2 |
+| Render list of data with ImageListItem components |           2 |
+| Filter by keyword                                 |
+| +3                                                |
+| Step-by-step commits                              |           3 |
