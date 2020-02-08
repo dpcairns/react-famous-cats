@@ -37,16 +37,18 @@ Use the supplied images data file at `data/images.js`
 
 **Time to git ACP!**
 
-### 2. Static HTML/CSS Example
+### 2. Render the list of images.
 
-Create a static example of your html and css. You can create "shells" for list items beyond the first one. Include your keyword select drop-down filter, don't forget to include an "all" option.
+In `App.js`, `map` over your image data and for each image, render an image.
 
-### STRETCH: 5. Filter on Keyword
+### 2. Render the list of images as components.
 
-1. In `app.js`, change the initial render to happen in a function that is called on page load with the full list of images. Start by clearing all the elements from the list.
-1. Reference the select drop-down and add an event listener
-1. In the event handler, filter the images (or use all images) and call
-   the function to re-render the list.
+Build a ImageListItem component, and render each image in App.js as an instance of this component.
+
+### STRETCH: 4. Filter on Keyword
+
+1. Add a select/drop-down with the image categories.
+1. In the event handler, filter the images (or use all images) and set the state to change the list.
 
 **Time to git ACP!**
 
