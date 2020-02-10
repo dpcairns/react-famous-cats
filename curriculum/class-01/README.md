@@ -11,101 +11,50 @@ Today's demo and lab include a `reset.css`. [Let's look at this article](https:/
 ### Wire Frame on Paper or Whiteboard
 
 1. Page Layout. Draw out what your page will look like. This is about space management, consider:
-    1. Header with Logo and Title
-    1. Main Section
-        1. Search, Sort, etc.
-        1. List of things
-    1. Footer
+   1. Header with Logo and Title
+   1. Main Section
+      1. Search, Sort, etc.
+      1. List of things
+   1. Footer
 1. Decide semantics and structure
-    1. Label the pieces of your drawing with what elements you will use.
-    1. Design the layout requirements. How should things be aligned and layout? Write this onto your drawing.
-    1. Based on above, pick a CSS layout strategy and write this on your drawing.
+   1. Label the pieces of your drawing with what elements you will use.
+   1. Design the layout requirements. How should things be aligned and layout? Write this onto your drawing.
+   1. Based on above, pick a CSS layout strategy and write this on your drawing.
 1. Decide on high-level styling (make notes on your drawing)
-    1. Fonts
-    1. Color
-    1. Whitespace (padding and margins)
-    1. Stylistic images/designs
+   1. Fonts
+   1. Color
+   1. Whitespace (padding and margins)
+   1. Stylistic images/designs
 
-### Static HTML/CSS
+## Basic React Components
 
-Implement your HTML and CSS. This will be better place to address css styling!
+```
+import React from 'react';
+import Cat from './Cat';
+import catData from './data.js';
+import './App.css';
 
-### Static-to-Dynamic Template
-
-A process for creating dynamically rendered HTML via template.
-
-The recipe is as follows:
-
-1. Statically design one or more instances of the final html
-and css you would like to create (based on wireframe). You can put in additional placeholder `<li>`
-2. Create a test that calls a template function and asserts
-that the result is the same as the static html
-3. Make the test pass by returning the exact same static html 
-from the template function
-4. Begin to replace the static html in the template function with 
-object properties passed into the template function
-5. When the template is fully dynamic and the test passes, 
-you now have a tested, usable template function 
-
-## VSCode HTML Extension
-
-Install `tobermory.es6-string-html`;
-
-## Template Functions with Template Literals
-
-A function that combines the above concepts by taking data and
-returning the created DOM. It follows a standard recipe:
-
-```js
-// 1) Define a template function
-function renderHTML(data) {
-
-    // 2) Make HTML string via template literal
-    const html = /*html*/`
-        <p>template literal for ${data.property}</p>
-    `;
-    
-    // 3) return html
-    return html;
-}
 ```
 
-This can be shortened to:
+import Header from './Header';
 
-```js
-function renderHTML(data) {
-    return /*html*/`
-        <p>template literal for ${data.property}</p>
-    `;
+export default class App extends React.Component {
+state = { name: 'Danny' };
+
+render() {
+
+    return (
+      <div>
+        <Header greeting={ this.state.name } />
+        <button onClick={ () => this.setState({ name: 'Suzie' })}>hey, my name is suzie!!!</button>
+        <div> hello world! </div>
+      </div >
+    );
+
 }
-```
-
-## Testing HTML equal
-
-Because our test html and template function html may have different amounts of whitespace (for example, 2 tabs vs 3 tabs), we use a custom qunit assertion that normalizes whitespace.
-
-Let's take a look at `htmlEqual` function and test.
-
-## `<template>` element
-
-Special DOM element that can have it's `.innerHTML` property set and
-the resulting created DOM can be accessed via its `.content` property
-
-```js
-// 1) define a common function
-function htmlToDOM(html) {
-    // 2) create a template element
-    const template = document.createElement('template');
-    // 3) turn html to DOM by setting innerHTML
-    template.innerHTML = html;
-    // 4) use content property to fetch dom
-    const dom = template.content;
-    // 5) Get the first element child
-    const firstElementChild = dom.firstElementChild;
-    // 5) return the first element to the caller
-    return firstElementChild;
 }
-```
+
+````
 
 Let's take a look at test for `htmlToDOM`...
 
@@ -115,22 +64,12 @@ Act on each element (item) of an array without having to specify
 a `for` loop.
 
 ```js
-const list = document.getElementById('list');
+const list = document.getElementById("list");
 images.forEach(image => {
-    const dom = template(image);
-    list.appendChild(dom);
+  const dom = template(image);
+  list.appendChild(dom);
 });
-```
-
-## Removing DOM nodes
-
-By testing if an element has a last element child, you can remove each child until no more children remain:
-
-```js
-while(list.lastElementChild) {
-    list.lastElementChild.remove();
-}
-```
+````
 
 ## Array `.filter` method
 
@@ -139,7 +78,7 @@ Make a new array from an array by testing each element (item) of the array, retu
 ```js
 const numbers = [1, 6, 2, 3, 5];
 const evenNumbers = numbers.filter(number => {
-    return number % 2 === 0;
+  return number % 2 === 0;
 });
 console.log(evenNumbers); // [6, 2]
 ```
@@ -149,6 +88,7 @@ console.log(evenNumbers); // [6, 2]
 Let's review the code challenge repo and process!
 
 Sneak peak at `npm`:
+
 1. `package.json` - track things via a manifest
 1. `npm i eslint -D` - install and track
 1. `npm i` - install
