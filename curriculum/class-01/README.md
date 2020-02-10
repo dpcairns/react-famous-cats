@@ -28,33 +28,30 @@ Today's demo and lab include a `reset.css`. [Let's look at this article](https:/
 
 ## Basic React Components
 
-```
-import React from 'react';
-import Cat from './Cat';
-import catData from './data.js';
-import './App.css';
+```js
+import React from "react";
+import Cat from "./Cat";
+import catData from "./data.js";
+import "./App.css";
 
-```
-
-import Header from './Header';
+import Header from "./Header";
 
 export default class App extends React.Component {
-state = { name: 'Danny' };
+  state = { name: "Danny" };
 
-render() {
-
+  render() {
     return (
       <div>
-        <Header greeting={ this.state.name } />
-        <button onClick={ () => this.setState({ name: 'Suzie' })}>hey, my name is suzie!!!</button>
+        <Header greeting={this.state.name} />
+        <button onClick={() => this.setState({ name: "Suzie" })}>
+          click this to make my name suzie!!!
+        </button>
         <div> hello world! </div>
-      </div >
+      </div>
     );
-
+  }
 }
-}
-
-````
+```
 
 Let's take a look at test for `htmlToDOM`...
 
@@ -69,7 +66,7 @@ images.forEach(image => {
   const dom = template(image);
   list.appendChild(dom);
 });
-````
+```
 
 ## Array `.filter` method
 
