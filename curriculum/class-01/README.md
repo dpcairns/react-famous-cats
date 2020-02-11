@@ -53,7 +53,22 @@ export default class App extends React.Component {
 }
 ```
 
-Let's take a look at test for `htmlToDOM`...
+## Array `.filter` method
+
+Make a new array from an array by testing each element (item) of the array, returning a truthy response if it should be included in the new array:
+
+```js
+const numbers = [1, 6, 2, 3, 5];
+const evenNumbers = numbers.filter(number => {
+  return number % 2 === 0;
+});
+console.log(evenNumbers); // [6, 2]
+```
+
+## React gotchas
+
+- `className` vs `class`
+- `render` must return _one_ thing
 
 ## Array `.forEach` method
 
