@@ -18,7 +18,15 @@ export default class App extends React.Component {
 
         return cat.type === selected;
       })
-      .map(cat => <Cat cat={cat} />);
+      .map(anything => (
+        <Cat
+          booger={6}
+          name={anything.name}
+          type={anything.type}
+          url={"garfield.jpeg"}
+          year={anything.year}
+        />
+      ));
 
     return (
       <div>

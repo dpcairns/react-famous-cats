@@ -1,19 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Cat extends Component {
-    render() {
-        return <li>
-            <div className="info-container">
-                <h2>{this.props.cat.name}</h2>
-                <p className="cat-type">{this.props.cat.type}</p>
-            </div>
+  render() {
+    return (
+      <li>
+        <div className="info-container">
+          <h2>{this.props.name}</h2>
+          <p>Is it boogery?:{String(this.props.booger)}</p>
+          <p className="cat-type">{this.props.type}</p>
+        </div>
 
-            <div className="image-container">
-                <img
-                    alt={this.props.cat.url}
-                    src={this.props.cat.url} />
-            </div>
-            <p className="year">{this.props.cat.year}</p>
-        </li>
-    }
+        <div className="image-container">
+          <img alt={this.props.url} src={this.props.url} />
+        </div>
+        <p className="year">{this.props.year}</p>
+      </li>
+    );
+  }
 }
