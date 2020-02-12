@@ -4,16 +4,16 @@ export default class Cat extends Component {
     render() {
         return <li>
             <div className="info-container">
-                <h2>{this.props.cat.name}</h2>
-                <p className="cat-type">{this.props.cat.type}</p>
+                <h2>{this.props.feline.name}</h2>
+                <p className="cat-type">{this.props.feline.type}</p>
             </div>
 
             <div className="image-container">
                 <img
-                    alt={this.props.cat.url}
-                    src={this.props.cat.url} />
+                    alt={this.props.feline.url}
+                    src={this.props.feline.url} />
             </div>
-            <p className="year">{this.props.cat.year}</p>
+            <p className="year">{this.props.feline.year}</p>
         </li>
     }
 }

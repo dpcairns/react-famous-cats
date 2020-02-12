@@ -3,7 +3,7 @@ const cats = [
         name: 'Felix',
         type: 'Tuxedo',
         url: 'felix.png',
-        year: 1892
+        year: 1992
     },
     {
         name: 'Garfield',

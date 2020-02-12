@@ -7,14 +7,13 @@ export default class App extends Component {
   state = { selected: null };
 
   render() {
-    const { selected } = this.state;
     const catNodes = catData
       .filter(cat => {
-        if (!selected) return true;
+        if (!this.state.selected) return true;
 
-        return cat.type === selected;
+        return cat.type === this.state.selected;
       })
-      .map(cat => <Cat cat={cat} />);
+      .map(pet => <Cat feline={pet} />);
 
     const handleChange = e => {
       this.setState({ selected: e.target.value });
