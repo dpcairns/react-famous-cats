@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import request from 'superagent';
+import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
     state = { 
@@ -8,10 +8,11 @@ export default class Home extends Component {
         characters: [],
      }
 
-    handleSearch = async () => {
+    handleSearch = async (e) => {
+        e.preventDefault();
+
         const data = await request.get(`https://rickandmortyapi.com/api/character/?name=${this.state.searchQuery}`)
 
-        console.log(data)
         this.setState({ characters: data.body.results })
     }
 
@@ -20,17 +21,21 @@ export default class Home extends Component {
         return (
         <div className="App">
           <header className="App-header">
-            <input onChange={(e) => this.setState({ searchQuery: e.target.value })}/>
-            <button onClick={this.handleSearch}>Search!</button>
+              <form onSubmit={this.handleSearch}>
+                <input onChange={(e) => this.setState({ searchQuery: e.target.value })}/>
+                <button>Search!</button>
+              </form>
           </header>
           <ul>
               {
                     this.state.characters.map(character => 
                     <Link to={character.name}>
-                        <li>
-                            <p>name: {character.name}</p>
-                            <img src={character.image} />
-                        </li>
+                        <div>
+                            <p><img src={ character.image } /></p>
+                            <p>name: { character.name }</p>
+                            <p>species: { character.species }</p>
+                            <p>status { character.status }</p>
+                        </div>
                     </Link>)
               }
           </ul>

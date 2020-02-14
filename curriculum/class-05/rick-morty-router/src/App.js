@@ -15,7 +15,6 @@ export default class App extends Component {
                 <div>
                     <h2>Rick and morty search!!!</h2>
                     <Link to="/">go home</Link>
-                        
                         <Route exact path="/" component={Home} />
                         <Route path="/:charId" component={Detail} />
                 </div>
