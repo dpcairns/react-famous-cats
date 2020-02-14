@@ -10,12 +10,14 @@ export default class HomeApp extends Component {
   state = { movies: [] };
 
   async loadMovies() {
-    console.log("hmmm");
     const response = await getMovies();
     const movies = response.Search;
     const totalResults = response.totalResults;
     console.log("||", movies);
-    this.setState({ movies, totalResults });
+    this.setState({
+      movies: movies,
+      totalResults: totalResults,
+     });
   }
 
   async componentDidMount() {
@@ -35,11 +37,11 @@ export default class HomeApp extends Component {
       <div>
         <Header headerText="Welcome to Alchemy Movie Database" />
         <main>
-          <section class="options-section">
+          <section className="options-section">
             <SearchOptions />
           </section>
 
-          <section class="list-section">
+          <section className="list-section">
             <MovieList movies={movies} />
             <Paging totalResults={totalResults} />
           </section>

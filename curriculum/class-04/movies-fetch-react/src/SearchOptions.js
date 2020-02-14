@@ -44,7 +44,7 @@ export default class SearchOptions extends Component {
 
   render() {
     return (
-      <form class="options" onSubmit={this.handleSubmit}>
+      <form className="options" onSubmit={this.handleSubmit}>
         <label for="search">Search:</label>
         <p>
           <input
@@ -55,7 +55,7 @@ export default class SearchOptions extends Component {
           />
         </p>
 
-        <fieldset class="type">
+        <fieldset className="type">
           <label>
             <input
               type="radio"
@@ -72,7 +72,7 @@ export default class SearchOptions extends Component {
               name="type"
               value="series"
               onClick={() => this.setState({ checkedRadio: "series" })}
-              chec1ked={this.state.checkedRadio === "series"}
+              checked={this.state.checkedRadio === "series"}
             />
             Series
           </label>

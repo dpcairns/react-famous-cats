@@ -6,6 +6,6 @@ export default class ActorsList extends Component {
     }
 
     render() {
-        return <ul class="actors-list"></ul >
+        return <ul className="actors-list"></ul >
     }
 }

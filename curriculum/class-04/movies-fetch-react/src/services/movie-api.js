@@ -2,7 +2,6 @@ const URL = "https://www.omdbapi.com/?apikey=3db77742&";
 
 export async function getMovies() {
   // get rid of the first character of the hash (#)
-
   let queryString = window.location.hash.slice(1);
   // build a url out of the url and querytstring
   //https://www.omdbapi.com/?apikey=3db77742&y=1940

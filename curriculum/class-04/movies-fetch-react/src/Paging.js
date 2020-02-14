@@ -4,7 +4,7 @@ import "./Paging.css";
 export default class Paging extends Component {
   constructor() {
     super();
-    this.state = { page: 1 };
+    this.state = { __page: 1 };
   }
 
   componentDidMount() {
@@ -15,24 +15,20 @@ export default class Paging extends Component {
     });
   }
 
-  updatePage(increment) {
-    const { page } = this.state;
+  updatePage(____increment) {
     const queryString = window.location.hash.slice(1);
     const searchParams = new URLSearchParams(queryString);
-    searchParams.set("page", page + increment);
+    searchParams.set("page", this.state.__page + ____increment);
 
     window.location.hash = searchParams.toString();
   }
 
   updateControls() {
-    const { page } = this.state;
     const queryString = window.location.hash.slice(1);
     const searchParams = new URLSearchParams(queryString);
+    let pageToUse = this.state.__page;
 
-    // hmm, this code looks like same code in renderHTML...
-    let pageToUse = page;
-
-    const parsedPage = parseInt(searchParams.get("page"), 10);
+    const parsedPage = Number(searchParams.get("page"));
     if (isNaN(parsedPage)) {
       pageToUse = 1;
     } else {

@@ -10,7 +10,7 @@ class MovieItem extends Component {
     }
 
     return (
-      <li class="movie-item">
+      <li className="movie-item">
         <h2>
           <a href="https://www.imdb.com/title/${movie.imdbID}" target="_blank">
             {movie.Title}
