@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import request from 'superagent';
+import CharacterItem from './CharacterItem.js';
+import SearchBar from './SearchBar.js';
 import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
     state = { 
-        searchQuery: '',
+        searchQuery: this.props.match.params.name,
         characters: [],
+     }
+
+     async componentDidMount() {
+         if (this.props.match.params.name) {
+             const data = await request.get(`https://rickandmortyapi.com/api/character/?name=${this.props.match.params.name}`)
+     
+             this.setState({ characters: data.body.results })
+         }
      }
 
     handleSearch = async (e) => {
@@ -13,29 +23,31 @@ export default class Home extends Component {
 
         const data = await request.get(`https://rickandmortyapi.com/api/character/?name=${this.state.searchQuery}`)
 
-        this.setState({ characters: data.body.results })
+        this.setState({ 
+            characters: data.body.results, })
+        
+
+     this.props.history.push(this.state.searchQuery)
+
     }
 
+    handleChange = (e) => this.setState({ searchQuery: e.target.value })
+
     render() {
-        console.log(this.state)
         return (
         <div className="App">
           <header className="App-header">
-              <form onSubmit={this.handleSearch}>
-                <input onChange={(e) => this.setState({ searchQuery: e.target.value })}/>
-                <button>Search!</button>
-              </form>
+            <SearchBar 
+                searchQuery={this.state.searchQuery}
+                handleSearch={this.handleSearch} 
+                handleChange={this.handleChange}
+            />
           </header>
           <ul>
               {
                     this.state.characters.map(character => 
-                    <Link to={character.name}>
-                        <div>
-                            <p><img src={ character.image } /></p>
-                            <p>name: { character.name }</p>
-                            <p>species: { character.species }</p>
-                            <p>status { character.status }</p>
-                        </div>
+                    <Link to={`characters/${character.name}`}> 
+                        <CharacterItem character={character} />
                     </Link>)
               }
           </ul>

@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import request from 'superagent';
+import { getCharacter } from './api.js'
+import CharacterItem from './CharacterItem.js';
 
 export default class Detail extends Component {
     state = { character: {} }
 
     async componentDidMount() {
-        const data = await request.get(`https://rickandmortyapi.com/api/character/?name=${this.props.match.params.charId}`)
+        const data = await getCharacter(this.props.match.params.charId);
         
         if (data.body.results) {
-            this.setState({ character: data.body.results[0] })
+
+
+        this.setState({ character: data.body.results[0] })
+            
         }
     }
 
@@ -16,12 +20,7 @@ export default class Detail extends Component {
         const { character } = this.state;
 
         return (
-            <div>
-                <p><img src={ character.image } /></p>
-                <p>name: { character.name }</p>
-                <p>species: { character.species }</p>
-                <p>status { character.status }</p>
-            </div>
+            <CharacterItem character={ character } />
       );
     }
 }
