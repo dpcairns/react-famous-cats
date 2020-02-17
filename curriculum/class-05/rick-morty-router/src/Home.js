@@ -18,6 +18,17 @@ export default class Home extends Component {
          }
      }
 
+     async componentWillUpdate(nextProps) {
+         const param = this.props.match.params.name;
+         let nextParam = nextProps.match.params.name;
+
+         if (param !== nextParam && !nextParam) {
+            this.setState({ 
+                characters: [],
+                searchQuery: ''
+             })         }
+     }
+
     handleSearch = async (e) => {
         e.preventDefault();
 

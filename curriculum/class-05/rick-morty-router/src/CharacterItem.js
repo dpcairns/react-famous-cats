@@ -10,7 +10,6 @@ export default class CharacterItem extends React.Component {
             status
         } = character;
 
-        console.log(character)
         return (
             <>
             { character.name 
