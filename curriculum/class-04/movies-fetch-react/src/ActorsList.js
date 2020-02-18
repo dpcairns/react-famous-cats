@@ -1,11 +1,23 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-export default class ActorsList extends Component {
-    componentDidMount(l) {
-        window.location.hash = 's=harry&page=4&type=series';
-    }
+// export default class ActorsList extends Component {
+//     componentDidMount(l) {
+//         window.location.hash = 's=harry&page=4&type=series';
+//     }
 
-    render() {
-        return <ul className="actors-list"></ul >
-    }
+//     render() {
+//         return <ul className="actors-list"></ul >
+//     }
+// }
+
+import { useEffect} from 'react';
+
+const ActorsList = ({ actors}) => {
+    const [selectedActor, changeActor]= useState('leo');
+
+    useEffect(() => {
+        console.log('do this on rerender')
+    }, [actors])
+    return <ul className="actors-list">{actorNodes}</ul >
 }
+
