@@ -12,4 +12,6 @@ Point salad:
 
 - As with the pokedex app, the user should see their search query in the front-end URL. For example: `mywebsite.com/portland` should show results for Portland. Searching for a city should likewise inject the city into the URL (3 points)
 
+- Get a static map working! (2 points)
+
 - Deploy your functioning front-end on github pages using `npm i gh-pages`, updating `package.json` and following the instructions in this tutorial. (https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f) (2 points)
