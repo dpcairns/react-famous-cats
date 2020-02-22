@@ -8,7 +8,10 @@ class CatItem extends Component {
     return (
       <li class="cat-item">
         <div class="info-container">
+<<<<<<< HEAD
             CAAAAAATTTT!!!!
+=======
+>>>>>>> 7fef02ed0ecc6ac7444f44a066b7566676da826a
           <h2>{cat.name}</h2>
           <p class="cat-type">{cat.type}</p>
         </div>

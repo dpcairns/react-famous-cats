@@ -14,7 +14,11 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
+<<<<<<< HEAD
   "/react-famous-cats/precache-manifest.0ab2747d7917af5063a9847f90a7f052.js"
+=======
+  "/precache-manifest.865680fff34e8ccd16864ba695abc779.js"
+>>>>>>> 7fef02ed0ecc6ac7444f44a066b7566676da826a
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +37,11 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
+<<<<<<< HEAD
 workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/react-famous-cats/index.html"), {
+=======
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/index.html"), {
+>>>>>>> 7fef02ed0ecc6ac7444f44a066b7566676da826a
   
   blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
 });
