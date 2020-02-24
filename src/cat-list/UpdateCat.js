@@ -4,14 +4,26 @@ import request from 'superagent';
 export default class CreateCat extends Component {
     state = {
         types: [],
-        sidekick: false,
-        type: 1,
     };
 
     componentDidMount = async () => {
         const types = await request.get('https://new-cats-db-danny.herokuapp.com/api/types');
         
+        console.log(types)
         this.setState({ types: types.body });
+
+        const cat = await request.get(`https://new-cats-db-danny.herokuapp.com/api/cat/${this.props.match.params.id}`);
+        
+        const catToUpdate = cat.body[0];
+        
+        this.setState({
+            name: catToUpdate.name,
+            sidekick: catToUpdate.is_sidekick,
+            lives: catToUpdate.lives,
+            image: catToUpdate.url,
+            type: catToUpdate.type_id,
+            years: catToUpdate.year
+        });
     }
     handleNameChange = (e) => {
         this.setState({ name: e.target.value })
@@ -42,19 +54,26 @@ export default class CreateCat extends Component {
         this.setState({ image: e.target.value })
     }
 
+    handleDelete = async () => {
+        await request.delete(`https://new-cats-db-danny.herokuapp.com/api/cat/${this.props.match.params.id}`);
+
+        this.props.history.push('/');
+    }
+
     handleSubmit = async (e) => {
         e.preventDefault();
 
         const newCat = {
             name: this.state.name,
-            isSidekick: this.state.sidekick,
+            is_sidekick: this.state.sidekick,
             lives: this.state.lives,
             url: this.state.image,
-            typeId: this.state.type,
-            year: this.state.years
+            type_id: this.state.type,
+            year: this.state.years,
+            id: Number(this.props.match.params.id),
         }
 
-        const dbCat = await request.post('https://new-cats-db-danny.herokuapp.com/api/cats', newCat);
+        const dbCat = await request.put('https://new-cats-db-danny.herokuapp.com/api/cats', newCat);
 
 
         console.log(dbCat)
@@ -66,7 +85,7 @@ export default class CreateCat extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    Make me a cat!
+                    Update my cat!
                     <br/>
                     <label>
                         Name: 
@@ -75,7 +94,7 @@ export default class CreateCat extends Component {
                     <br/>
                     <label>
                         Type: 
-                        <select onChange={ this.handleTypeChange }>
+                        <select value={ this.state.type } onChange={ this.handleTypeChange }>
                             { this.state.types.map(type => <option value={type.id}> 
                             {type.name}
                             </option>)}
@@ -109,6 +128,10 @@ export default class CreateCat extends Component {
                     <br />
                 <button>Submit</button>
                 </form>
+    
+                <button onClick={ this.handleDelete } 
+                style={{ background: 'red', marginTop: 100}}>DELETE</button>
+
             </div>
         )
     }

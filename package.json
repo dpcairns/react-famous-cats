@@ -1,8 +1,5 @@
 {
-<<<<<<< HEAD
   "homepage": "https://dpcairns.github.io/react-famous-cats",
-=======
->>>>>>> 7fef02ed0ecc6ac7444f44a066b7566676da826a
   "name": "react-city-explorer",
   "version": "0.1.0",
   "private": true,
@@ -13,23 +10,16 @@
     "gh-pages": "^2.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-<<<<<<< HEAD
     "react-router-dom": "^5.1.2",
-=======
->>>>>>> 7fef02ed0ecc6ac7444f44a066b7566676da826a
     "react-scripts": "3.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-<<<<<<< HEAD
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-=======
-    "eject": "react-scripts eject"
->>>>>>> 7fef02ed0ecc6ac7444f44a066b7566676da826a
   },
   "eslintConfig": {
     "extends": "react-app"

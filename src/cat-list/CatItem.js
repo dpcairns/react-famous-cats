@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "./CatItem.css";
 
 class CatItem extends Component {
@@ -8,11 +9,9 @@ class CatItem extends Component {
     return (
       <li class="cat-item">
         <div class="info-container">
-<<<<<<< HEAD
-            CAAAAAATTTT!!!!
-=======
->>>>>>> 7fef02ed0ecc6ac7444f44a066b7566676da826a
           <h2>{cat.name}</h2>
+          <Link to={`update/${cat.id}`}>update</Link>
+
           <p class="cat-type">{cat.type}</p>
         </div>
 
